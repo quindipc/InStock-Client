@@ -1,0 +1,59 @@
+@use '_mixins.scss' as *;
+
+@font-face {
+    font-family: 'Roboto Slab', serif;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+}
+
+h1{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+
+    @include mobile {
+        font-family: 'Roboto Slab', serif;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+h2{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+
+    @include mobile {
+        font-family: 'Roboto Slab', serif;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+h3{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+
+    @include mobile {
+        font-family: 'Roboto Slab', serif;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+h4{
+    font-family: 'Roboto Slab', serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+
+    @include mobile {
+        font-family: 'Roboto Slab', serif;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
