@@ -1,0 +1,7 @@
+@use '_variables.scss' as *;
+@use '_mixins.scss' as *;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
