@@ -1,0 +1,24 @@
+//add fonts, mixins, resets, variables, etc,.
+// @use "" as *;
+
+.footer {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+    &__copyright {
+        //change to variable
+    //    color: $cloud;
+
+        //change to font mixin - Body Medium
+        font-size: .8125rem;
+        line-height: 1.25rem;
+
+        // //change to mixin for media queries
+        // @include tablet {
+        // font-size: .875rem;
+        // line-height: 1.375rem;
+        // }
+    }
+}
