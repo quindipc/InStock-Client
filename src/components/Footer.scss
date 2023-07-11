@@ -1,5 +1,7 @@
-//add fonts, mixins, resets, variables, etc,.
-// @use "" as *;
+@use "../styles/partials/font" as *;
+@use "../styles/partials/global" as *;
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/variables" as *;
 
 .footer {
 display: flex;
@@ -8,17 +10,12 @@ justify-content: center;
 align-items: center;
 
     &__copyright {
-        //change to variable
-    //    color: $cloud;
-
-        //change to font mixin - Body Medium
-        font-size: .8125rem;
-        line-height: 1.25rem;
-
-        // //change to mixin for media queries
-        // @include tablet {
-        // font-size: .875rem;
-        // line-height: 1.375rem;
-        // }
+       color: $cloud;
+      @include Mp__body-medium;
+      
+        @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        }
     }
 }
