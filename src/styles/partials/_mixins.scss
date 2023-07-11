@@ -15,3 +15,45 @@
         @content;
     }
 }
+
+@mixin p__body-large {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+}
+
+@mixin p__body-medium {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+@mixin p__body-small {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+@mixin Mp__body-large {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 26px;
+}
+
+@mixin Mp__body-medium {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+@mixin Mp__body-small {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+}
