@@ -18,14 +18,36 @@ export default function AddNewWarehouse() {
             alt="Arrow back icon"
           />
         </Link>
-        <h1 className="ewwarehouse__title">Add New Warehouse</h1>
+        <h1 className="newwarehouse__title">Add New Warehouse</h1>
+        <hr className="newwarehouse__divider" />
 
-        <div className="newwarehouse__warehousedetails">
-          <form action=""></form>
-        </div>
-        <div className="newwarehouse__contactdetails">
-          <form action=""></form>
-        </div>
+        <form action="">
+          <div className="newwarehouse__warehousedetails">
+            <h2 className="newwarehouse__title">Warehouse Details</h2>
+            <label className="newwarehouse__subheader">Warehouse Name</label>
+            <input className="newwarehouse__input" type="text" placeholder="Toronto"/>
+            <label className="newwarehouse__subheader">Street Address</label>
+            <input className="newwarehouse__input" type="text"placeholder="123 Pearl Street SW" />
+            <label className="newwarehouse__subheader">City</label>
+            <input className="newwarehouse__input" type="text" placeholder="Toronto"/>
+            <label htmlFor="">Country</label>
+            <input className="newwarehouse__input" type="text" placeholder="Canada" />
+          </div>
+          <hr className="newwarehouse__divider" />
+          <div clasclassName="newwarehouse__subheader">
+            <h2 className="newwarehouse__title">Contact Details</h2>
+            <label className="newwarehouse__subheader">Contact Name</label>
+            <input className="newwarehouse__input" type="text" placeholder="Graeme Lyon"/>
+            <label className="newwarehouse__subheader">Position</label>
+            <input className="newwarehouse__input" type="text" placeholder="Warehouse Manager"/>
+            <label className="newwarehouse__subheader">Phone Number</label>
+            <input className="newwarehouse__input" type="text" placeholder="+1 (647) 504-0911" />
+            <label htmlFor="">Email</label>
+            <input className="newwarehouse__input" type="text" placeholder="glyon@instock.com" />
+          </div>
+          <button className="newwarehouse__button">Cancel</button>
+          <button className="newwarehouse__button newwarehouse__button--add">+ Add Warehouse</button>
+        </form>
       </div>
     </section>
   );
