@@ -1,0 +1,6 @@
+// Added a flex:1 so that any main content will be stay on top of footer
+// change if necessary
+.main {
+    display: flex;
+    flex: 1;
+}
