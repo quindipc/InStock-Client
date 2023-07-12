@@ -1,10 +1,13 @@
+import './Header.scss'
+import logo from '../../assets/Logo/InStock-Logo.svg'
+
 export default function Header() {
   return (
-    <Header>
+    <header className='header'>
       <div>
-        <img />
+        <img src={logo}/>
       </div>
-      <div>
+      <div className='header__links'>
         <div>
           <a>Warehouses</a>
         </div>
@@ -12,6 +15,6 @@ export default function Header() {
           <a>Inventory</a>
         </div>
       </div>
-    </Header>
+    </header>
   );
 }

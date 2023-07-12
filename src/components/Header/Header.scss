@@ -1,4 +1,10 @@
-header {
+.header {
     background-color: #232940;
-    ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__links {
+        display: flex;
+    }
 }
