@@ -1,23 +1,25 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.scss';
-import WarehousePage from './pages/WarehousePage';
-import InventoryPage from './pages/InventoryPage';
 
-function App() {
+// Dependencies
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// Components & Pages
+// import Footer from './components/Footer/Footer';
+import WarehousePage from './pages/warehousePage';
+import InventoryPage from './pages/inventoryPage';
+
+export default function App() {
   return (
    <BrowserRouter>
     <Routes>
-      <Route path="/" element={<WarehousePage/>}/>
+      <Route path="/" element={<WarehousePage />}/>
       <Route path="/warehouse" element={<WarehousePage/>}/>
       <Route path="/inventory" element={<InventoryPage/>}/>
-      
-{/* this is part of the footer component edit later */}
-      {/* <main className='main'></main> */}
-
+    {/* this is part of the footer component edit later
+          {/* <main className='main'></main> */}
+          {/* <Footer /> */} 
     </Routes>
    </BrowserRouter>
   );
 }
-
-export default App;
