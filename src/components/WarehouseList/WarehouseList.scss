@@ -9,12 +9,26 @@
     height: 98.4375rem;
     margin: 8.5rem 1rem 0rem 1rem;
     border-radius: 0.1875rem;
+        @include tablet {
+            width: 44rem;
+            margin: 8.5rem 2rem 0rem 2rem;
+            height: 50.25rem;
+            flex-shrink: 0; 
+        }
 
     &__header{
         border-bottom: 1px solid $cloud;
+        @include tablet{
+            display: flex;
+            align-items: center;
+        }
     }
     &__title{
         padding: 2rem 10.56rem 0rem 1.5rem;
+        @include tablet{
+            padding: 2rem 6.25rem 0rem 1.5rem;
+            margin-bottom: 2rem;
+        }
     }
     &__searchbar{
         background: $white;
@@ -30,6 +44,13 @@
         padding-left: 10px;
         border-radius: 1.25rem;
         border: 1px solid $cloud;
+        @include tablet{
+            width: 11.5625rem;
+            height: 2.375rem;
+            padding: 0.5rem 7.44rem 0.5rem 1rem;
+            margin-bottom: 1rem;
+            margin-left: 0rem;
+        }
     }
     &__button{
         background-color: $indigo;
@@ -40,5 +61,14 @@
         align-items: center;
         gap: 0.625rem;
         border-radius: 1.25rem;
+
+        @include tablet{
+            width: 10.5rem;
+            height: 2.375rem;
+            padding: 0.5rem 7.44rem 0.5rem 1rem;
+            margin-bottom: 1rem;
+            margin-right: 0rem;
+            margin-left: 0rem;
+        }
     }
 }
