@@ -1,22 +1,28 @@
 import React from 'react';
-import { BrowserRouter, Router, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
+
 import './App.scss';
-import WarehousePage from './pages/WarehousePage';
-import InventoryPage from './pages/InventoryPage';
+import WarehousePage from './pages/warehousePage';
+import InventoryPage from './pages/inventoryPage';
+import Header from './components/Header/Header';
+
 
 function App() {
   return (
    <BrowserRouter>
-    <Router>
-      <Route path="/" element={WarehousePage}/>
-      <Route path="/warehouse" element={WarehousePage}/>
-      <Route path="/inventory" element={InventoryPage}/>
-      <Footer />
+   <Header />
+    <Routes>
+    
+      <Route path="/" element={<WarehousePage />}/>
+      <Route path="/warehouse" element={<WarehousePage />}/>
+      <Route path="/inventory" element={<InventoryPage />}/>
+      
 {/* this is part of the footer component edit later */}
       {/* <main className='main'></main> */}
 
-    </Router>
+    </Routes>
+    <Footer />
    </BrowserRouter>
   );
 }
