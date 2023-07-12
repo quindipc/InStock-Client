@@ -1,0 +1,38 @@
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehousedetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 21.43rem;
+    background-color: $light-gray; //need to change to white later
+    border-radius: 4px; // may need to be changed
+  }
+
+  &__container-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  &__name {
+    padding: 0 0.5rem; //change
+  }
+
+  &__edit-icon {
+
+  }
+
+  &__divider {
+    @include horizontal-divider;
+  }
+}
