@@ -3,18 +3,26 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehousedetails {
+.whdetails {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  //TODO: Card container may need to be changed to global styles
   &__container {
     display: flex;
     flex-direction: column;
     width: 21.43rem;
-    background-color: $light-gray; //need to change to white later
+    background-color: $white; //need to change to white later
     border-radius: 4px; // may need to be changed
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
+    position: absolute;
+    top: 9rem;
+
+    @include tablet {
+      width: 44rem;
+    }
   }
 
   &__container-title {
@@ -25,14 +33,89 @@
   }
 
   &__name {
-    padding: 0 0.5rem; //change
+    padding: 0 0.5rem;
   }
+&__edit {
+  display: none; 
+
+  // The edit icon is too close to the left
+  @include tablet{
+    display: flex; 
+    background-image: url(../../assets/Icons/edit-24px-white.svg);
+    background-color: $indigo;
+    background-position: left center;
+    align-items: center;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    padding: 0.5rem 2rem;
+    color: #FFFFFF;
+    border-radius: 1.25rem;
+    box-shadow: none;
+    height: 2.5rem;
+    margin-left: 21.5rem;
+  }
+}
 
   &__edit-icon {
+    margin-left: 3.8rem;
+    background-color: $indigo;
+    border-radius: 50%;
+    padding: .30rem;
 
+    @include tablet {
+    display:none;
+    }
+  }
+
+  &__container-info {
+    padding: 1.5rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+
+  &__subcontainer--info{
+    @include tablet {
+      padding-left: 2rem;
+    }
+  }
+  &__subcontainer--address{
+    padding-bottom: 2.25rem;
+    @include tablet {
+
+    }
+  }
+
+  &__subheader{
+//TODO: need to include mobile table header styles
+    color: $slate;
+    text-transform: uppercase;
+
+  }
+
+  &__container-contact {
+    display:flex; 
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include tablet {
+      padding-left: 2.5rem; //change this
+    }
   }
 
   &__divider {
     @include horizontal-divider;
+    &--vertical {
+      display:none;
+
+      @include tablet {
+        display: flex;
+        @include vertical-divider;
+        padding-left: 1rem;
+      }
+    }
   }
 }
