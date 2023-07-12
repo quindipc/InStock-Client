@@ -11,11 +11,11 @@ function App() {
     <Router>
       <Route path="/" element={warehousePage}/>
       <Route path="/warehouse" element={warehousePage}/>
-      <Route path="/Inventory" element={inventoryPage}/>
+      <Route path="/inventory" element={inventoryPage}/>
       <Footer />
 {/* this is part of the footer component edit later */}
       {/* <main className='main'></main> */}
-      
+
     </Router>
    </BrowserRouter>
   );
