@@ -1,0 +1,42 @@
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.delete{
+    padding: 1rem;
+    position: relative;
+    &__close{
+        float: right;
+    }
+    &__title{
+        padding-top: 3.75rem;
+    }
+    &__subtext{
+        padding-top: 1rem;
+    }
+    &__buttons{
+        position: fixed; 
+        bottom: 0%;
+        &-cancel{
+            display: inline-flex;
+            background-color: $white;
+            border: solid 1px $cloud;
+            width: 10.1875rem;
+            padding: 0.5rem 3.94rem;
+            align-items: center;
+            gap: 0.625rem;
+            border-radius: 1.25rem;
+            margin: 1rem;
+        }
+        &-delete{
+            display: inline-flex;
+            background-color: $red;
+            border: solid 1px $red;
+            width: 10.1875rem;
+            padding: 0.5rem 3.94rem;
+            border-radius: 1.25rem;
+            margin: 1rem;
+        }
+    }
+}

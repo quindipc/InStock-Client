@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components & Pages
 // import Footer from './components/Footer/Footer';
 import WarehousePage from './pages/warehousePage';
-import InventoryPage from './pages/inventoryPage';
+import InventoryPage from './pages/InventoryPage';
+import TestPage from './pages/TextPage';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/" element={<WarehousePage />}/>
       <Route path="/warehouse" element={<WarehousePage/>}/>
       <Route path="/inventory" element={<InventoryPage/>}/>
+      <Route path='/test' element={<TestPage/>}/>
     {/* this is part of the footer component edit later
           {/* <main className='main'></main> */}
           {/* <Footer /> */} 
