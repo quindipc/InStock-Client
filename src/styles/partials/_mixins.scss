@@ -18,7 +18,6 @@
   }
 }
 
-
 // Font styles -- need to add header font styles
 @mixin p__body-large {
   font-family: "Titillium Web", sans-serif;
@@ -66,5 +65,10 @@
 @mixin horizontal-divider {
   border: none;
   border-top: 0.0625rem solid $cloud;
-  margin: auto;
+}
+
+@mixin vertical-divider {
+  border: none;
+  border-right: 1px solid $cloud;
+  height: 5em;
 }
