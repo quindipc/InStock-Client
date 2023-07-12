@@ -9,9 +9,10 @@ import { Link } from "react-router-dom";
 // Assets
 import arrowback from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit-24px-white.svg";
-// import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 
 export default function WarehouseDetails() {
+
+  //////////////// EDIT THIS LATER //////////////////
   // const BASE_URL = "http://localhost:8000/";
 
   // const { id } = useParams();
@@ -56,20 +57,11 @@ export default function WarehouseDetails() {
   //   contact_email,
   // } = getWarehouseDetails;
 
-  // // This may need to be changed -- check inventory item component
-  // const {
-  //   // id,
-  //   item_name,
-  //   category,
-  //   status,
-  //   quantity
-  // } = getInventoryItemDetails;
-
   return (
     <section className="whdetails">
       <div className="whdetails__container">
         <div className="whdetails__container-title">
-          {/* Link to Warehouse List Page -- need to add */}
+          {/* Link to Warehouse List Page -- need to edit? */}
           <Link to="/" className="whdetails__back">
             <img
               className="whdetails__arrowback"
@@ -79,10 +71,12 @@ export default function WarehouseDetails() {
           </Link>
           {/* <h1 className="whdetails__name">{warehouse_name}</h1> */}
           <h1 className="whdetails__name">Washington</h1>
-          {/* Link to Warehouse Edit Page -- need to add */}
+          {/* Link to Warehouse Edit Page -- need to edit? */}
           <Link to="/" className="whdetails__edit">
             Edit
-            <img className="whdetails__edit-icon" src={edit} alt="Edit icon" />
+          </Link>
+          <Link to="/" className="whdetails__edit-icon">
+          <img src={edit} alt="Edit icon" />
           </Link>
         </div>
 
@@ -114,45 +108,6 @@ export default function WarehouseDetails() {
           </div>
         </div>
         <hr className="whdetails__divider" />
-
-        {/* INVENTORY LIST ITEMS */}
-        {/* Need to map this over the API */}
-        {/* <div className="warehousedetails__container-item"> */}
-        {/* <hr className="warehousedetails__divider" /> */}
-        {/* <h4 className="warehousedetails__subheader">Inventory Item</h4> */}
-        {/* Link to the Inventory Item -- need to add */}
-        {/* <Link to="/" className="warehousedetails__inventory-item"> */}
-        {/* <p className="warehousedetails__details">{item_name}</p>  */}
-        {/* <p className="warehousedetails__details">Item Name</p> */}
-        {/* </Link> */}
-        {/* <h4 className="warehousedetails__subheader">Status</h4> */}
-        {/* <p className="warehousedetails__details">{status}</p> */}
-        {/* <p className="warehousedetails__details">Status</p> */}
-        {/* <h4 className="warehousedetails__subheader">QTY</h4> */}
-        {/* <p className="warehousedetails__details">{quantity}</p> */}
-        {/* <p className="warehousedetails__details">Quantity</p> */}
-        {/* <h4 className="warehousedetails__subheader">Category</h4> */}
-        {/* <p className="warehousedetails__details">{category}</p> */}
-        {/* <p className="warehousedetails__details">Category</p> */}
-
-        {/* DELETE -- may need to change this */}
-        {/* <Link to="/" className="warehousedetails__delete"> */}
-        {/* <img */}
-        {/* className="warehousedetails__delete-icon" */}
-        {/* /      src={deleteIcon} */}
-        {/* alt="delete icon" */}
-        {/* /> */}
-        {/* </Link> */}
-
-        {/* Link to Invnetory Item Edit Page -- need to add */}
-        {/* <Link to="/" className="warehousedetails__edit-item"> */}
-        {/* <img */}
-        {/* className="warehousedetails__edit-icon" */}
-        {/* src={edit} */}
-        {/* alt="Edit icon" */}
-        {/* /> */}
-        {/* </Link> */}
-        {/* </div> */}
       </div>
     </section>
   );

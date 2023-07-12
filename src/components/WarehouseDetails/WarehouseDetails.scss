@@ -4,6 +4,7 @@
 @use "../../styles/partials/variables" as *;
 
 .whdetails {
+   //TODO: need to include font styles for everything
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,15 +14,16 @@
   &__container {
     display: flex;
     flex-direction: column;
-    width: 21.43rem;
-    background-color: $white; //need to change to white later
+    width: 21.4375rem;
+    width: 90%;
+    padding: 1rem;
+    background-color: $white;
     border-radius: 4px; // may need to be changed
-    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.10);
-    position: absolute;
-    top: 9rem;
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    margin-top: -4.875rem;
 
     @include tablet {
-      width: 44rem;
+      min-width: 44rem;
     }
   }
 
@@ -35,86 +37,87 @@
   &__name {
     padding: 0 0.5rem;
   }
-&__edit {
-  display: none; 
+  &__edit {
+    display: none;
 
-  // The edit icon is too close to the left
-  @include tablet{
-    display: flex; 
-    background-image: url(../../assets/Icons/edit-24px-white.svg);
-    background-color: $indigo;
-    background-position: left center;
-    align-items: center;
-    text-decoration: none;
-    background-repeat: no-repeat;
-    padding: 0.5rem 2rem;
-    color: #FFFFFF;
-    border-radius: 1.25rem;
-    box-shadow: none;
-    height: 2.5rem;
-    margin-left: 21.5rem;
+    // TODO: The edit icon too close to the left
+    @include tablet {
+      display: flex;
+      background-image: url(../../assets/Icons/edit-24px-white.svg);
+      background-color: $indigo;
+      background-position: left center;
+      align-items: center;
+      text-decoration: none;
+      background-repeat: no-repeat;
+      padding: 0.5rem 2rem;
+      color: #ffffff;
+      border-radius: 1.25rem;
+      box-shadow: none;
+      height: 2.5rem;
+      margin-left: auto;
+    }
   }
-}
 
   &__edit-icon {
-    margin-left: 3.8rem;
+    display: flex;
+    margin-left: auto;
     background-color: $indigo;
     border-radius: 50%;
-    padding: .30rem;
+    padding: 0.3rem;
 
     @include tablet {
-    display:none;
+      display: none;
     }
   }
 
   &__container-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 
     @include tablet {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
     }
   }
 
-
-  &__subcontainer--info{
+  &__subcontainer--info {
     @include tablet {
       padding-left: 2rem;
     }
   }
-  &__subcontainer--address{
+  &__subcontainer--address {
     padding-bottom: 2.25rem;
     @include tablet {
-
+      margin-right: auto;
     }
   }
 
-  &__subheader{
-//TODO: need to include mobile table header styles
+  &__subheader {
+    //TODO: need to include mobile font styles
     color: $slate;
     text-transform: uppercase;
-
   }
 
   &__container-contact {
-    display:flex; 
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 
     @include tablet {
-      padding-left: 2.5rem; //change this
+      margin-left: auto;
     }
   }
 
   &__divider {
     @include horizontal-divider;
     &--vertical {
-      display:none;
+      display: none;
 
       @include tablet {
         display: flex;
         @include vertical-divider;
-        padding-left: 1rem;
       }
     }
   }
