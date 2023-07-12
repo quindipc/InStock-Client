@@ -1,6 +1,12 @@
+import Footer from "../components/Footer/Footer"
+import WarehouseList from "../components/WarehouseList/WarehouseList"
+
 function WarehousePage () {
     return (
-        <h1>Warehouse Page</h1>
+        <>
+        <WarehouseList/>
+        <Footer />
+        </>
     )
 }
 
