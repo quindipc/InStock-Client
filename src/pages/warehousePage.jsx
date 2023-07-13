@@ -7,10 +7,9 @@ import WarehouseDetails from "../components/WarehouseDetails/WarehouseDetails";
 export default function WarehousePage () {
     return (
         <div>
-            <Header />
             <WarehouseList/>
             {/* TODO: Change to state later */}
-            <WarehouseDetails />
+            {/* <WarehouseDetails /> */}
             <Footer />
         </div>
     )
