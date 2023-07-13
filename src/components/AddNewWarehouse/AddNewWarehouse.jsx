@@ -3,16 +3,14 @@ import "./AddNewWarehouse.scss";
 // Dependancies
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 // Assets
 import arrowback from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function AddNewWarehouse() {
-  // const [showSuccess, setSuccess] = useState(false);
-  // const [showError, setError] = useState(false);
   const navigate = useNavigate();
-  // const BASE_URL = "http://localhost:8000/";
+  const BASE_URL = "http://localhost:8000/";
 
   const [formData, setFormData] = useState({
     wh__name: "",
@@ -25,23 +23,8 @@ export default function AddNewWarehouse() {
     wh__contactemail: "",
   });
 
-//   //POST request to server
-//   axios
-//   .post(`${BASE_URL}warehouses`, formData)
-//   .then(() => {
-//     // Return to homepage
-//     setTimeout(() => {
-//       setSuccess(true);
-//       navigate("/");
-//     }, 3000);
-//   })
-//   .catch((error) => {
-//     setError(true);
-//   });
-
-// setSuccess(true);
-
-
+  const [showSuccess, setSuccess] = useState(false);
+  const [showError, setError] = useState(false);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -52,16 +35,26 @@ export default function AddNewWarehouse() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // TESTING -- please delete
-    alert(
-      `Name: ${formData.wh__name}, Email: ${formData.wh__contactemail}`,
-    );
+    // POST request to the server
+    // TODO: Do I need to add a useEffect here???
+    axios
+      // TODO: Test to see if this send to warehouses
+      .post(`${BASE_URL}warehouses`, formData)
+      .then(() => {
+        setSuccess(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      })
+      .catch((error) => {
+        setError(true);
+      });
   };
 
   const cancelHandler = (event) => {
     event.preventDefault();
     const confirmCancel = window.confirm(
-      "Are you sure you would like to cancel?",
+      "Are you sure you would like to cancel?"
     );
     if (confirmCancel) {
       navigate("/");
@@ -71,6 +64,9 @@ export default function AddNewWarehouse() {
   return (
     <section className="newwh">
       <div className="newwh__container">
+
+        <div className="newwh__header">
+        {/* ADD NEW WAREHOUSE HEADER */}
         <Link to="/" className="newwh__back">
           <img
             className="newwh__arrowback"
@@ -79,9 +75,12 @@ export default function AddNewWarehouse() {
           />
         </Link>
         <h1 className="newwh__title">Add New Warehouse</h1>
+        </div>
+        
         <hr className="newwh__divider" />
 
-        <form onSubmit={handleSubmit}>
+        <form className="newwh__form" onSubmit={handleSubmit}>
+          {/* WAREHOUSE DETAILS */}
           <div className="newwh__warehousedetails">
             <h2 className="newwh__title">Warehouse Details</h2>
             <label htmlFor="wh__name" className="newwh__subheader">
@@ -133,9 +132,12 @@ export default function AddNewWarehouse() {
               onChange={handleChange}
             />
           </div>
+
+
+          {/* CONTACT DETAILS */}
           <hr className="newwh__divider" />
-          <div className="newwh__subheader">
-            <h2 className="newwh__title">Contact Details</h2>
+          <div className="newwh__contactdetails">
+              <h2 className="newwh__title">Contact Details</h2>
 
             <label
               htmlFor="wh__contactname"
@@ -195,15 +197,15 @@ export default function AddNewWarehouse() {
               placeholder="glyon@instock.com"
               onChange={handleChange}
             />
-          </div>
 
-          {/* Error handling
+          {/* Error handling */}
           {showError && (
-              <div className="upload__error">
+              <div className="newwh__error">
                 Please fill out all the fields.
               </div>
-          )} */}
-          
+          )}
+        </div>
+          <div className="newwh__action">
           <button
             onClick={cancelHandler}
             className="newwh__button newwh__button--cancel"
@@ -216,12 +218,13 @@ export default function AddNewWarehouse() {
           >
             + Add Warehouse
           </button>
+          </div>
         </form>
-{/* 
-        Success handling
+
+        {/* Success handling */}
         {showSuccess && (
             <div className="newwh__success">Upload successful!</div>
-          )} */}
+          )}
         </div>
     </section>
   );
