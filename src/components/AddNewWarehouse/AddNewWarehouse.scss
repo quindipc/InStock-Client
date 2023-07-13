@@ -1,0 +1,93 @@
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.newwh {
+  //TODO: need to include font styles for everything
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  //TODO: Card container may need to be changed to global styles
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 21.4375rem;
+    width: 90%;
+    padding: 1rem;
+    background-color: $white;
+    border-radius: 4px; // may need to be changed
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    margin-top: -4.875rem;
+
+    @include tablet {
+      min-width: 44rem;
+    }
+  }
+
+//   TODO: The header will need global styles & global BEM naming for all components
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  &__divider {
+    @include horizontal-divider;
+// TODO: Divider should span the entire container mobile
+  }
+
+  &__warehousedetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__subheader {
+    padding-bottom: 4px;
+  }
+
+//   TODO: Global mixin styles for input fields 
+  &__input {
+    height: 2.25rem;
+    width: 100%;
+    padding: 0 1rem;
+    border: 1px solid $cloud;
+    border-radius: 1.25rem;
+    background-color: $white;
+
+    @include tablet {
+        height: 2.375rem;
+    }
+
+    // Need to add outline to an error state if user does not fill out all fields
+    &:focus {
+        outline: none;
+        border: 2px solid $indigo;
+      }
+  }
+
+
+
+  &__contactdetails {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
