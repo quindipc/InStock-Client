@@ -1,0 +1,197 @@
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.editwh {
+  //TODO: need to include font styles for everything
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  //TODO: Card container may need to be changed to global styles
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 21.4375rem;
+    width: 90%;
+    background-color: $white;
+    border-radius: 4px; // may need to be changed
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    margin-top: -4.875rem;
+    margin-bottom: 3rem; //TODO: change footer styles and add margin/padding
+
+    @include tablet {
+      min-width: 44rem;
+    }
+
+    @include desktop {
+      margin: auto;
+      max-width: 80rem;
+    }
+
+  }
+
+  &__container-input {
+    padding: 0.5rem;
+  }
+
+  //   TODO: The header will need global styles & global BEM naming for all components
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem 1rem;
+  }
+
+  &__container-form {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__subtitle {
+    padding: 1.5rem 0.5rem;
+  }
+
+  &__divider {
+    @include horizontal-divider;
+
+    &--tablet{
+      @include tablet{
+        @include vertical-divider;
+        margin: 1rem 0 1rem;
+      }
+    }
+  }
+
+  &__warehousedetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+
+    @include tablet{
+      display: flex;
+      
+    }
+  }
+
+  &__subheader {
+    padding-bottom: 4px;
+  }
+
+  //   TODO: Global mixin styles for input fields
+  &__input {
+    height: 2.25rem;
+    width: 100%;
+    padding: 0 1rem;
+    border: 1px solid $cloud;
+    border-radius: 1.25rem;
+    background-color: $white;
+
+    @include tablet {
+      height: 2.375rem;
+    }
+
+    // TODO: Need to add outline to an error state if user does not fill out all fields
+    &:focus {
+      outline: none;
+      border: 2px solid $indigo;
+    }
+
+    &--error{
+      outline:none;
+      border: 1px solid $red;
+    }
+  }
+
+  &__contactdetails {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  &__action {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    // TODO: background color should pan entire width of bottom of the container
+    background-color: $light-gray;
+
+    @include tablet{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    @include tablet{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    height: 2.25rem;
+    width: 100%;
+    margin: 0.5rem;
+
+    @include tablet {
+      height: 2.375rem;
+      width: 10rem;
+    }
+
+    &--add {
+      background-color: $indigo;
+      border: 1px solid $indigo;
+      color: $white;
+
+      &:hover {
+        background-color: $black;
+        border-color: $black;
+        cursor: pointer;
+      }
+    }
+
+    &--cancel {
+      background-color: $white;
+      border: 1px solid $cloud;
+      color: $slate;
+
+      &:hover {
+        border-color: $indigo;
+        color: $indigo;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__error {
+    color: $red;
+  }
+
+  &__success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $green;
+  }
+}
