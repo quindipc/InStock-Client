@@ -16,7 +16,6 @@
     flex-direction: column;
     width: 21.4375rem;
     width: 90%;
-    padding: 1rem;
     background-color: $white;
     border-radius: 4px; // may need to be changed
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
@@ -27,12 +26,12 @@
     }
   }
 
-//   TODO: The header will need global styles & global BEM naming for all components
+  //   TODO: The header will need global styles & global BEM naming for all components
   &__header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 1.5rem
+    padding: 1.5rem;
   }
 
   &__title {
@@ -44,20 +43,22 @@
 
   &__divider {
     @include horizontal-divider;
-// TODO: Divider should span the entire container mobile
+    margin: 1.5rem;
+    // TODO: Divider should span the entire container mobile
   }
 
   &__warehousedetails {
     display: flex;
     flex-direction: column;
     justify-content: center;
+        padding: 1rem;
   }
 
   &__subheader {
     padding-bottom: 4px;
   }
 
-//   TODO: Global mixin styles for input fields 
+  //   TODO: Global mixin styles for input fields
   &__input {
     height: 2.25rem;
     width: 100%;
@@ -67,27 +68,73 @@
     background-color: $white;
 
     @include tablet {
-        height: 2.375rem;
+      height: 2.375rem;
     }
 
-    // Need to add outline to an error state if user does not fill out all fields
+    // TODO: Need to add outline to an error state if user does not fill out all fields
     &:focus {
-        outline: none;
-        border: 2px solid $indigo;
-      }
+      outline: none;
+      border: 2px solid $indigo;
+    }
   }
-
-
 
   &__contactdetails {
     display: flex;
     flex-direction: column;
+    padding: 1rem;
   }
 
-  &__actions {
+  &__action {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    // TODO: background color should pan entire width of bottom of the container
+    background-color: $light-gray;
+  }
+
+  &__button {
+    height: 2.25rem;
+    width: 100%;
+    margin: 0.5rem;
+    @include tablet {
+      padding: 1rem;
+      // TODO: Width for tablet and desktop will adjust
+    }
+
+    &--add{
+        background-color: $indigo;
+        border: 1px solid $indigo;
+        color: $white;
+
+        &:hover{
+            background-color: $black;
+            border-color: $black;
+            cursor: pointer;
+        }
+    }
+
+    &--cancel {
+        background-color: $white;
+        border: 1px solid $cloud;
+        color: $slate;
+
+        &:hover{
+            border-color: $indigo;
+            color: $indigo;
+            cursor: pointer;
+        }
+    }
+  }
+
+  &__error {
+    color: $red;
+  }
+
+  &__success {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $green;
   }
 }
