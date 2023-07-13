@@ -1,14 +1,13 @@
 // Components
 // import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer"
-import AddNewWarehouse from "../components/AddNewWarehouse/AddNewWarehouse";
+import EditWarehouse from "../components/EditWarehouse/EditWarehouse";
 
 export default function NewWarehousePage() {
     return (
         <div>
-            <AddNewWarehouse />
+            <EditWarehouse />
             <Footer />
         </div>
     )
 }
-
