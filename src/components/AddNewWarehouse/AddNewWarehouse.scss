@@ -139,7 +139,9 @@
   }
 
   &__buttons {
-
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     @include tablet{
       display: flex;
       flex-direction: row;
