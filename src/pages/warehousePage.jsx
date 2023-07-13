@@ -4,6 +4,7 @@ import Footer from "../components/Footer/Footer"
 import WarehouseList from "../components/WarehouseList/WarehouseList"
 import WarehouseDetails from "../components/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "../components/EditWarehouse/EditWarehouse";
+import AddInventory from "../components/AddInventory/AddInventory";
 
 export default function WarehousePage () {
     return (
@@ -12,7 +13,7 @@ export default function WarehousePage () {
             <WarehouseList/>
             {/* TODO: Change to state later */}
            { /* <WarehouseDetails /> */}
-           <EditWarehouse />
+           <AddInventory />
             <Footer />
         </div>
     )

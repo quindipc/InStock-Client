@@ -10,47 +10,57 @@ export default function EditWarehouse() {
       </div>
 
       <form className="edit-warehouse__form">
-        <div className="edit-warehouse__form-section">
-          <h2 className="edit-warehouse__form-section-title">Warehouse Details</h2>
-          <label className="edit-warehouse__input-container">
-            Warehouse Name
-            <input className="edit-warehouse__input"></input>
-          </label>
-          <label className="edit-warehouse__input-container">
-            Street Address
-            <input className="edit-warehouse__input"></input>
-          </label>
-          <label className="edit-warehouse__input-container">
-            City
-            <input className="edit-warehouse__input"></input>
-          </label>
-          <label className="edit-warehouse__input-container">
-            Country
-            <input className="edit-warehouse__input"></input>
-          </label>
-        </div>
-        <div className="edit-warehouse__form-section">
-          <h2 className="edit-warehouse__form-section-title">Contact Details</h2>
-          <label className="edit-warehouse__input-container">
-            Contact Name
-            <input className="edit-warehouse__input"></input>
-          </label>
-          <label className="edit-warehouse__input-container">
-            Position
-            <input className="edit-warehouse__input"></input>
-          </label>
-          <label className="edit-warehouse__input-container">
-            Phone Number
-            <input className="edit-warehouse__input"></input>
-          </label>
-          <label className="edit-warehouse__input-container">
-            Email
-            <input className="edit-warehouse__input"></input>
-          </label>
+        <div className="edit-warehouse__sections">
+          <div className="edit-warehouse__form-section edit-warehouse__form-section--left">
+            <h2 className="edit-warehouse__form-section-title">
+              Warehouse Details
+            </h2>
+            <label className="edit-warehouse__input-container">
+              Warehouse Name
+              <input className="edit-warehouse__input"></input>
+            </label>
+            <label className="edit-warehouse__input-container">
+              Street Address
+              <input className="edit-warehouse__input"></input>
+            </label>
+            <label className="edit-warehouse__input-container">
+              City
+              <input className="edit-warehouse__input"></input>
+            </label>
+            <label className="edit-warehouse__input-container">
+              Country
+              <input className="edit-warehouse__input"></input>
+            </label>
+          </div>
+          <div className="edit-warehouse__form-section">
+            <h2 className="edit-warehouse__form-section-title">
+              Contact Details
+            </h2>
+            <label className="edit-warehouse__input-container">
+              Contact Name
+              <input className="edit-warehouse__input"></input>
+            </label>
+            <label className="edit-warehouse__input-container">
+              Position
+              <input className="edit-warehouse__input"></input>
+            </label>
+            <label className="edit-warehouse__input-container">
+              Phone Number
+              <input className="edit-warehouse__input"></input>
+            </label>
+            <label className="edit-warehouse__input-container">
+              Email
+              <input className="edit-warehouse__input"></input>
+            </label>
+          </div>
         </div>
         <div className="edit-warehouse__buttons">
-            <button className="edit-warehouse__button edit-warehouse__button--cancel">Cancel</button>
-            <button className="edit-warehouse__button edit-warehouse__button--save">Save</button>
+          <button className="edit-warehouse__button edit-warehouse__button--cancel">
+            Cancel
+          </button>
+          <button className="edit-warehouse__button edit-warehouse__button--save">
+            Save
+          </button>
         </div>
       </form>
     </div>

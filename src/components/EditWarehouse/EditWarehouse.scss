@@ -75,4 +75,36 @@
     background-color: #2E66E5;
     color: #FFFFFF;
   }
+
+  @media (min-width: 768px) {
+    &__top {
+        border-bottom: 1px solid #BDC5D5;
+    }
+    &__sections {
+        display: flex;
+        width: 100%;
+    }
+
+    &__form-section {
+        width: 50%;
+        border-top: none;
+    }
+
+    &__form-section--left {
+        border-right: 1px solid #BDC5D5;
+        padding-right: 1rem;
+    }
+
+    &__buttons {
+        justify-content: flex-end;
+    }
+
+    &__button {
+        width: auto;
+    }
+  }
+
+  @media (min-width: 768px) {
+    
+  }
 }
