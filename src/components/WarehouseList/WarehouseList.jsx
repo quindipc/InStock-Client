@@ -13,7 +13,3 @@ export default function WarehouseList() {
                 <button className='warehouses__button'> <h3>+ Add New Warehouse</h3></button>
             </div>
             {/* add in the single warehouse componets here  */}
-        </div>
-    )
-}
-
