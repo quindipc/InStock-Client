@@ -6,8 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Components & Pages
 // import Footer from './components/Footer/Footer';
-import WarehousePage from './pages/warehousePage';
-import InventoryPage from './pages/inventoryPage';
+import WarehousePage from './pages/WarehousePage';
+import InventoryPage from './pages/InventoryPage';
 
 export default function App() {
   return (
