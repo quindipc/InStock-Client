@@ -6,7 +6,6 @@ import AddNewWarehouse from "../components/AddNewWarehouse/AddNewWarehouse";
 export default function NewWarehousePage() {
     return (
         <div>
-            <Header />
             <AddNewWarehouse />
             <Footer />
         </div>
