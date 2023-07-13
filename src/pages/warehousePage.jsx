@@ -10,7 +10,7 @@ export default function WarehousePage () {
             <Header />
             <WarehouseList/>
             {/* TODO: Change to state later */}
-            <WarehouseDetails />
+            {/* <WarehouseDetails /> */}
             <Footer />
         </div>
     )
