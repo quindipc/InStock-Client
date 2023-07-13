@@ -14,17 +14,16 @@
   padding: 1rem;
   border-radius: 0.1875rem;
   margin-left: 2rem;
-  display: flex;
 
   @include tablet {
     width: 90%;
     margin: auto;
     margin-top: -5.875rem;
+    padding-right: 2.5rem;
   }
   @include desktop {
     margin-top: -5.875rem;
     width: 80%;
-    display: flex;
   }
 
   &__header {
@@ -113,19 +112,23 @@
   }
 }
 
+
+/* add in the single warehouse componets styling here  */
 .warehouse{
   &__item {
     padding: 2rem;
     width: 100%;
     border-bottom: 1px solid $cloud;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     @include tablet{
       display: flex;
+      flex-direction: row;
+
     }
     @include desktop{
-      display: flex;
+      padding: 2.5rem;
     }
   }
   &__titles{
