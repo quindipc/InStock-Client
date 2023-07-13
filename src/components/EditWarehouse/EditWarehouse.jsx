@@ -1,56 +1,56 @@
-import "EditWarehouse.scss";
+import "./EditWarehouse.scss";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function EditWarehouse() {
   return (
-    <div>
-      <div>
+    <div className="edit-warehouse">
+      <div className="edit-warehouse__top">
         <img src={backArrow} />
-        <h1>Edit Warehouse</h1>
+        <h1 className="edit-warehouse__title">Edit Warehouse</h1>
       </div>
 
-      <form>
-        <div>
-          <h2>Warehouse Details</h2>
-          <label>
+      <form className="edit-warehouse__form">
+        <div className="edit-warehouse__form-section">
+          <h2 className="edit-warehouse__form-section-title">Warehouse Details</h2>
+          <label className="edit-warehouse__input-container">
             Warehouse Name
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
-          <label>
+          <label className="edit-warehouse__input-container">
             Street Address
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
-          <label>
+          <label className="edit-warehouse__input-container">
             City
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
-          <label>
+          <label className="edit-warehouse__input-container">
             Country
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
         </div>
-        <div>
-          <h2>Contact Details</h2>
-          <label>
+        <div className="edit-warehouse__form-section">
+          <h2 className="edit-warehouse__form-section-title">Contact Details</h2>
+          <label className="edit-warehouse__input-container">
             Contact Name
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
-          <label>
+          <label className="edit-warehouse__input-container">
             Position
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
-          <label>
+          <label className="edit-warehouse__input-container">
             Phone Number
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
-          <label>
+          <label className="edit-warehouse__input-container">
             Email
-            <input></input>
+            <input className="edit-warehouse__input"></input>
           </label>
         </div>
-        <div>
-            <button>Cancel</button>
-            <button>Save</button>
+        <div className="edit-warehouse__buttons">
+            <button className="edit-warehouse__button edit-warehouse__button--cancel">Cancel</button>
+            <button className="edit-warehouse__button edit-warehouse__button--save">Save</button>
         </div>
       </form>
     </div>

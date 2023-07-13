@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer"
 import WarehouseList from "../components/WarehouseList/WarehouseList"
 import WarehouseDetails from "../components/WarehouseDetails/WarehouseDetails";
+import EditWarehouse from "../components/EditWarehouse/EditWarehouse";
 
 export default function WarehousePage () {
     return (
@@ -10,7 +11,8 @@ export default function WarehousePage () {
             <Header />
             <WarehouseList/>
             {/* TODO: Change to state later */}
-            <WarehouseDetails />
+           { /* <WarehouseDetails /> */}
+           <EditWarehouse />
             <Footer />
         </div>
     )
