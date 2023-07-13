@@ -14,6 +14,7 @@
   padding: 1rem;
   border-radius: 0.1875rem;
   margin-left: 2rem;
+  display: flex;
 
   @include tablet {
     width: 90%;
@@ -22,8 +23,8 @@
   }
   @include desktop {
     margin-top: -5.875rem;
-    display: flex;
     width: 80%;
+    display: flex;
   }
 
   &__header {
@@ -124,7 +125,7 @@
       display: flex;
     }
     @include desktop{
-      padding: 2.5rem;
+      display: flex;
     }
   }
   &__titles{
