@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className='header'>
       <div className='header__logo-container'>
-        <img src={logo}/>
+        <img src={logo} alt='Instock Logo'/>
       </div>
       <div className='header__links'>
         <div className='header__link-container header__link-container--clicked'>
