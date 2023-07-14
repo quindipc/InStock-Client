@@ -1,0 +1,38 @@
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.notfound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+//   padding: $padding-headlines-mobile;
+  padding-bottom: 1rem;
+  background-color: $white;
+
+  @include tablet {
+    padding-bottom: 1.5rem;
+  }
+
+//   &__title, &__emoji {
+// //    @include page-header-mobile;
+//    @include tablet {
+//     //    @include page-header-desktop;
+//     }
+// }
+
+// &__message {
+//     @include body-copy-mobile;
+//     @include tablet {
+//         @include body-copy-desktop;
+//     }
+//   }
+
+  &__back {
+    color: $indigo;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
