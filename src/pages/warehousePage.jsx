@@ -19,9 +19,9 @@ export default function WarehousePage () {
             <WarehouseList setOpenModal={setOpenModal}/>
             {openModal && <DeleteWarehouse setOpenModal={setOpenModal}/>}
             {/* TODO: Change to state later */}
-            {/* <WarehouseDetails />
+            <WarehouseDetails />
             <AddNewWarehouse />
-            <EditWarehouse /> */}
+            <EditWarehouse />
             {/* <Footer /> */}
         </div>
     )
