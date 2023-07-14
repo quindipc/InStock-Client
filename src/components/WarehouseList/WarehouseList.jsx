@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import chevron from '../../assets/Icons/chevron_right-24px.svg'; 
 import trash from '../../assets/Icons/delete_outline-24px.svg'; 
 import edit from '../../assets/Icons/edit-24px.svg'; 
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function WarehouseList({ setOpenModal }) {
     
@@ -20,7 +22,10 @@ export default function WarehouseList({ setOpenModal }) {
                 </Link>
             </div>
             {/* add in the single warehouse componets here  */}
-            <div className='warehouse__item'>
+
+            {warehouses.map(warehouse => (
+               
+            <div className='warehouse__item' key={warehouse.id}>
                 <div className='warehouse__text'>
                     <div className='warehouse__left'>
                         <div className='warehouse__left-name'> 
@@ -34,18 +39,19 @@ export default function WarehouseList({ setOpenModal }) {
                         </div>
                         <div className='warehouse__left-address'> 
                             <h4 className='warehouse__titles'>ADDRESS</h4>
-                            <p>the warehouse ADDRESS</p>
+                            <p>{warehouse.address}</p>
+                            <p>{warehouse.city},{warehouse.country}</p>
                         </div>
                     </div>
                     <div className='warehouse__right'>
                         <div className='warehouse__right-contact'> 
                             <h4 className='warehouse__titles'>CONTACT NAME</h4>
-                            <p>their name here</p>
+                            <p>{warehouse.contact_name}</p>
                         </div>
                         <div className='warehouse__right-info'> 
                             <h4 className='warehouse__titles'>CONTACT INFORMATION</h4>
-                            <p>their # here</p>
-                            <p>their email here</p>
+                            <p>{warehouse.contact_phone}</p>
+                            <p>{warehouse.contact_email}</p>
                         </div>
                     </div>
                 </div>
@@ -59,6 +65,11 @@ export default function WarehouseList({ setOpenModal }) {
                     </Link>
                 </div>
             </div>
+               
+
+            ))}
+
+
         </div>
     )
 }
