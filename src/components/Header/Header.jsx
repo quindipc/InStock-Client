@@ -16,7 +16,7 @@ export default function Header() {
       <div className='header__logo-container'>
 
         <Link to="/" element={<WarehousePage/>}>
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="Instock Logo"/>
         </Link>
       </div>
       <div className='header__links'>
