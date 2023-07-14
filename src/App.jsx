@@ -7,8 +7,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components & Pages
 import Header from "./components/Header";
 import Footer from './components/Footer/Footer';
-import WarehousePage from './pages/warehousePage';
+
+// Pages
+import WarehousePage from './pages/WarehousePage/WarehousePage';
 import InventoryPage from './pages/InventoryPage';
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"; 
 
 export default function App() {
   return (
