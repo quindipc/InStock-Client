@@ -1,33 +1,25 @@
+//Dependencies
 import './WarehouseList.scss';
+import { Link } from 'react-router-dom';
+
+// Assets
 import chevron from '../../assets/Icons/chevron_right-24px.svg'; 
 import trash from '../../assets/Icons/delete_outline-24px.svg'; 
 import edit from '../../assets/Icons/edit-24px.svg'; 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function WarehouseList({setOpenModal}) {
-
-    const [warehouses, setWarehouses] = useState([]);
-
-    useEffect(()=>{
-        const fetchwarehouses = () =>{
-            try {
-                const response = axios.get('/api/warehouses');
-                setWarehouses(response.data);
-            } catch (error) {
-                console.log("Error fetching warehouses:", error);
-              }
-        };
-    fetchwarehouses();
- }, []);
-
-
+export default function WarehouseList({ setOpenModal }) {
+    
+    
     return(
         <div className='warehouses'>
             <div className='warehouses__header'>
                 <h1 className='warehouses__title'>Warehouses</h1>
                 <input type="text" id="searchbar" className='warehouses__searchbar' placeholder="Search..."></input>
-                <button className='warehouses__button'><h3>+ Add New Warehouse</h3></button>
+                <Link to="/add-new-warehouse">
+                <button className='warehouses__button'> <h3>+ Add New Warehouse</h3></button>    
+                </Link>
             </div>
             {/* add in the single warehouse componets here  */}
 
@@ -39,8 +31,10 @@ export default function WarehouseList({setOpenModal}) {
                         <div className='warehouse__left-name'> 
                             <h4 className='warehouse__titles'>WAREHOUSE</h4>
                             <button className='warehouse__left-name-button'>
-                                <h3 className='warehouse__text-blue'>{warehouse.warehouse_name}</h3>
+                                <Link to="/warehouse/:id">
+                                <h3 className='warehouse__text-blue'> wh name</h3>
                                 <img src={chevron} alt="chevron arrow right" />
+                                </Link>
                             </button>
                         </div>
                         <div className='warehouse__left-address'> 
@@ -62,8 +56,13 @@ export default function WarehouseList({setOpenModal}) {
                     </div>
                 </div>
                 <div className='warehouse__icons'>
+                    <Link to="delete-warehouse/">
                     <button id='delete__button' className='warehouse__icons-delete' onClick={()=>{setOpenModal(true)}}><img src={trash} alt="delete trash can" /></button>
+                    </Link>
+
+                    <Link to="edit-warehouse/:id">
                     <button id='edit__button' className='warehouse__icons-edit'><img src={edit} alt="edit pencil" /></button>
+                    </Link>
                 </div>
             </div>
                
