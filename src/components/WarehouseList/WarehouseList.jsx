@@ -1,9 +1,9 @@
 import './WarehouseList.scss';
-import chevron from '../../assets/Icons/chevron_right-24px.svg';
-import trash from '../../assets/Icons/delete_outline-24px.svg';
-import edit from '../../assets/Icons/edit-24px.svg';
+import chevron from '../../assets/Icons/chevron_right-24px.svg'; 
+import trash from '../../assets/Icons/delete_outline-24px.svg'; 
+import edit from '../../assets/Icons/edit-24px.svg'; 
 
-export default function WarehouseList() {
+export default function WarehouseList({setOpenModal}) {
     return(
         <div className='warehouses'>
             <div className='warehouses__header'>
@@ -40,7 +40,7 @@ export default function WarehouseList() {
                     </div>
                 </div>
                 <div className='warehouse__icons'>
-                    <button id='delete__button' className='warehouse__icons-delete'><img src={trash} alt="delete trash can" /></button>
+                    <button id='delete__button' className='warehouse__icons-delete' onClick={()=>{setOpenModal(true)}}><img src={trash} alt="delete trash can" /></button>
                     <button id='edit__button' className='warehouse__icons-edit'><img src={edit} alt="edit pencil" /></button>
                 </div>
             </div>
