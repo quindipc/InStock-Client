@@ -1,62 +1,79 @@
 import "./WarehouseDetails.scss";
-import Inventory from './Inventory';
 
 // Dependancies
 import { Link } from "react-router-dom";
-// import axios from "axios";
-// import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 // Assets
 import arrowback from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit-24px-white.svg";
+import delete_icon from "../../assets/Icons/delete_outline-24px.svg";
+import edit_icon from "../../assets/Icons/edit-24px.svg";
+import chevron_right from "../../assets/Icons/chevron_right-24px.svg";
 
 export default function WarehouseDetails() {
+  const BASE_URL = "http://localhost:8000/";
+  
+  const { id } = useParams();
+  const [selectedWarehouseDetails, setSelectedWarehouseDetails] = useState([]);
+  
+  const getWarehouseDetails = (id) => {
+    axios
+      .get(`${BASE_URL}`)
+      .then((response) => {
+        setSelectedWarehouseDetails(response.data);
+      })
+      .catch((error) => {
+        console.log("Error fetching video details:", error);
+      });
+  };
+  
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}`)
+      .then((response) => {
+        setSelectedWarehouseDetails(response.data);
+        if (id) {
+          getWarehouseDetails(id);
+        } else {
+          getWarehouseDetails(response.data?.[0]?.id);
+        }
+      })
+      .catch((error) => {
+        console.log("Error fetching video details:", error);
+      });
+  }, [id]);
 
-  //////////////// EDIT THIS LATER //////////////////
-  // const BASE_URL = "http://localhost:8000/";
 
-  // const { id } = useParams();
-  // const [selectedWarehouseDetails, setSelectedWarehouseDetails] = useState([]);
-
-  // const getWarehouseDetails = (id) => {
-  //   axios
-  //     .get(`${BASE_URL}`)
-  //     .then((response) => {
-  //       setSelectedWarehouseDetails(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error fetching video details:", error);
-  //     });
-  // };
+////////////// TONY'S INVENTORY LIST COMPONENT //////////////
+  const [inventoryItems, setInventoryItems] = useState([
+    { id: 1, name: 'Television', category: 'Electronics', status: 'IN STOCK', quantity: 500 },
+    { id: 2, name: 'Gym Bag', category: 'Gear', status: 'OUT OF STOCK', quantity: 0 },
+    // { id: 3, name: 'Hoodie', category: 'Apparel', status: 'IN STOCK', quantity: 0 },
+  ]);
 
   // useEffect(() => {
-  //   axios
-  //     .get(`${BASE_URL}`)
-  //     .then((response) => {
-  //       setSelectedWarehouseDetails(response.data);
-  //       if (id) {
-  //         getWarehouseDetails(id);
-  //       } else {
-  //         getWarehouseDetails(response.data?.[0]?.id);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error fetching video details:", error);
-  //     });
-  // }, [id]);
+  //   fetch('http://localhost:8080/api/inventories')
+  //     .then((response) => response.json())
+  //     .then((data) => setInventoryItems(data))
+  //     .catch((error) => console.log(error));
+  // }, []);
 
-  // const {
-  //   // id,
-  //   warehouse_name,
-  //   address,
-  //   city,
-  //   country,
-  //   contact_name,
-  //   contact_position,
-  //   contact_phone,
-  //   contact_email,
-  // } = getWarehouseDetails;
+  //////////////// EDIT THIS LATER //////////////////
+
+  const {
+    // id,
+    warehouse_name,
+    address,
+    city,
+    country,
+    contact_name,
+    contact_position,
+    contact_phone,
+    contact_email,
+  } = getWarehouseDetails;
 
   return (
     <>
@@ -113,9 +130,57 @@ export default function WarehouseDetails() {
         </div>
       </section>
       <section className="whdetails">
-        <div className="whdetails__container">
-          <Inventory />
+
+
+        {/* INVENTORY DETAILS */}
+        <section className="whinventory">
+        <div className="whinventory__container">
+        <div>
+      {inventoryItems.map((item) => (
+        <div key={item.id} className="inventory__group">
+          <h4 className="inventory__line"></h4>
+          <div className="table__mastersection">
+            <div className="table__divsection">
+              <div className="table__section">
+                <div className="table__header">Inventory Item</div>
+                <button className="table__row--name">{item.name} 
+                <img src={chevron_right} />
+                </button>               
+              </div>
+              <div className="table__section">
+                <div className="table__header">Category</div>
+                <div className="table__row--category">{item.category}</div>
+              </div>
+            </div>
+            <div className="table__divsection">
+              <div className="table__section">
+                <div className="table__header">Status</div>
+                <div className="table__row--status">{item.status}</div>
+              </div>
+              <div className="table__section">
+                <div className="table__header">Quantity</div>
+                <div className="table__row--qty">{item.quantity}</div>
+              </div>
+            </div>
+            <div className="table__divsection--actions">
+              <div className="table__section">
+                <div className="table__header">Actions</div>
+                <img src={delete_icon} />
+                <img src={edit_icon} />
+              </div>
+            </div>
+            </div>
+          <div className="table__mastersection--icons">
+            <div className="table__divsection--rows">
+              <img src={delete_icon} />
+              <img src={edit_icon} />
+            </div>
+          </div>
         </div>
+      ))}
+    </div>
+        </div>
+        </section>
       </section>
     </>
 
