@@ -1,7 +1,7 @@
 // Components
 // import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer"
-// import WarehouseList from "../components/WarehouseList/WarehouseList"
+import WarehouseList from "../components/WarehouseList/WarehouseList"
 import WarehouseDetails from "../components/WarehouseDetails/WarehouseDetails";
 import AddNewWarehouse from "../components/AddNewWarehouse/AddNewWarehouse"
 import EditWarehouse from "../components/EditWarehouse/EditWarehouse";
