@@ -13,7 +13,7 @@ export default function WarehousePage () {
             <InventoryList/>
             {/* TODO: Change to state later */}
            { /* {/* <WarehouseDetails /> */}
-           <AddInventory /> 
+           {/*<AddInventory /> */}
             <Footer />
         </div>
     )

@@ -1,6 +1,7 @@
 import "./AddInventory.scss";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function AddInventory() {
     let [instock, setInstock] = useState(false)
@@ -10,6 +11,20 @@ export default function AddInventory() {
         } else {
             setInstock(false)
         }
+    }
+
+    let submitHandler = (e) => {
+      let obj = {}
+      obj.warehouse_id = e.target.warehouse.value
+        obj.item_name = e.target.name.value
+        obj.description = e.target.description.value
+        obj.category = e.target.category.value
+        obj.status = e.target.status.value
+        e.target.status.value === "instock" ? (obj.quantity = e.target.quantity.value) : (obj.quantity = 0)
+
+        axios.post("http://localhost:8080/api/inventories", obj).then((r) => {
+          console.log("success")
+        })
     }
   return (
     <div className="add-inventory">
@@ -26,16 +41,21 @@ export default function AddInventory() {
             </h2>
             <label className="add-inventory__input-container">
               Item Name
-              <input className="add-inventory__input" placeholder="Item Name"></input>
+              <input className="add-inventory__input" placeholder="Item Name" name="name"></input>
             </label>
             <label className="add-inventory__input-container">
               Description
-              <input className="add-inventory__input add-inventory__input--description" placeholder="Please enter a brief description..."></input>
+              <input className="add-inventory__input add-inventory__input--description" placeholder="Please enter a brief description..." name="description"></input>
             </label>
             <label className="add-inventory__input-container">
               Category
-              <select className="add-inventory__input add-inventory__input--select" required>
+              <select className="add-inventory__input add-inventory__input--select" required name="category">
                 <option value={""} disabled selected hidden>Please Select</option>
+                <option value={"electronics"}>Electronics</option>
+                <option value={"gear"}>Gear</option>
+                <option value={"apparel"}>Apparel</option>
+                <option value={"accessories"}>Accessories</option>
+                <option value={"health"}>Health</option>
               </select>
             </label>
           </div>
@@ -52,21 +72,21 @@ export default function AddInventory() {
             </label>
             {instock ? <label className="add-inventory__input-container">
               Quantity
-              <input className="add-inventory__input" value="0"></input>
+              <input className="add-inventory__input" value="0" name="quantity"></input>
             </label> : null}
             <label className="add-inventory__input-container">
               Warehouse
-              <select className="add-inventory__input add-inventory__input--select" required>
+              <select className="add-inventory__input add-inventory__input--select" required name="warehouse">
               <option value={""} disabled selected hidden>Please Select</option>
               </select>
             </label>
           </div>
         </div>
         <div className="add-inventory__buttons">
-          <button className="add-inventory__button add-inventory__button--cancel">
+          <button className="add-inventory__button add-inventory__button--cancel" type="button">
             Cancel
           </button>
-          <button className="add-inventory__button add-inventory__button--save">
+          <button className="add-inventory__button add-inventory__button--save" type="submit">
             + Add Item
           </button>
         </div>
