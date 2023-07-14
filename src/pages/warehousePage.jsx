@@ -5,19 +5,25 @@ import WarehouseList from "../components/WarehouseList/WarehouseList"
 import WarehouseDetails from "../components/WarehouseDetails/WarehouseDetails";
 import AddNewWarehouse from "../components/AddNewWarehouse/AddNewWarehouse"
 import EditWarehouse from "../components/EditWarehouse/EditWarehouse";
+import ViewInventory from "../components/ViewInventory/ViewInventory"
 import DeleteWarehouse from "../components/DeleteWarehouse/DeleteWarehouse";
 import { useState } from "react";
 
 export default function WarehousePage () {
 
     const [openModal, setOpenModal] = useState(false)
-
+    const [openInventoryEdit, setopenInventoryEdit] = useState(false)
+    
 
 
     return (
         <div>
             <WarehouseList setOpenModal={setOpenModal}/>
             {openModal && <DeleteWarehouse setOpenModal={setOpenModal}/>}
+            <ViewInventory setopenInventoryEdit={setopenInventoryEdit}/>
+            {openInventoryEdit && <ViewInventory setopenInventoryEdit={setopenInventoryEdit}/>}
+
+
             {/* TODO: Change to state later */}
             {/* <WarehouseDetails />
             <AddNewWarehouse />
