@@ -14,57 +14,43 @@ import edit_icon from "../../assets/Icons/edit-24px.svg";
 import chevron_right from "../../assets/Icons/chevron_right-24px.svg";
 
 export default function WarehouseDetails() {
-  const BASE_URL = "http://localhost:8000/";
-  
-  const { id } = useParams();
-  const [selectedWarehouseDetails, setSelectedWarehouseDetails] = useState([]);
-  
-  const getWarehouseDetails = (id) => {
-    axios
-      .get(`${BASE_URL}`)
-      .then((response) => {
-        setSelectedWarehouseDetails(response.data);
-      })
-      .catch((error) => {
-        console.log("Error fetching video details:", error);
-      });
-  };
-  
+  const BASE_URL = "http://localhost:8080";
+
+  const { warehouse_id } = useParams();
+  const [selectedWarehouseDetails, setSelectedWarehouseDetails] = useState({});
+  const [selectedWarehouse, setSelectedWarehouse] = useState({});
+  const [inventoryItems, setInventoryItems] = useState([]);
+
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}`)
-      .then((response) => {
+
+    // Grabs the warehouse id from list of warehouses
+    const fetchWarehouseDetails = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/warehouses/${warehouse_id}`);
         setSelectedWarehouseDetails(response.data);
-        if (id) {
-          getWarehouseDetails(id);
-        } else {
-          getWarehouseDetails(response.data?.[0]?.id);
-        }
-      })
-      .catch((error) => {
-        console.log("Error fetching video details:", error);
-      });
-  }, [id]);
+        console.log(response.data);
+      } catch (error) {
+        console.log("Error fetching warehouse details:", error);
+      }
+    };
 
+    // Grabs the inventory list from the specific warehouse selected
+    const fetchInventoryItems = async () => {
+      try {
+        const response = await axios.get(
+          `${BASE_URL}/warehouses/${warehouse_id}/inventories`,
+        );
+        setInventoryItems(response.data);
+      } catch (error) {
+        console.log("Error fetching inventory items:", error);
+      }
+    };
 
-////////////// TONY'S INVENTORY LIST COMPONENT //////////////
-  const [inventoryItems, setInventoryItems] = useState([
-    { id: 1, name: 'Television', category: 'Electronics', status: 'IN STOCK', quantity: 500 },
-    { id: 2, name: 'Gym Bag', category: 'Gear', status: 'OUT OF STOCK', quantity: 0 },
-    // { id: 3, name: 'Hoodie', category: 'Apparel', status: 'IN STOCK', quantity: 0 },
-  ]);
-
-  // useEffect(() => {
-  //   fetch('http://localhost:8080/api/inventories')
-  //     .then((response) => response.json())
-  //     .then((data) => setInventoryItems(data))
-  //     .catch((error) => console.log(error));
-  // }, []);
-
-  //////////////// EDIT THIS LATER //////////////////
+    fetchWarehouseDetails();
+    fetchInventoryItems();
+  }, [warehouse_id]);
 
   const {
-    // id,
     warehouse_name,
     address,
     city,
@@ -73,14 +59,16 @@ export default function WarehouseDetails() {
     contact_position,
     contact_phone,
     contact_email,
-  } = getWarehouseDetails;
+  } = selectedWarehouseDetails;
+
+  const { item_name, category, status, total_quantity } = selectedWarehouse;
 
   return (
     <>
+      {/* SELECTED WAREHOUSE */}
       <section className="whdetails">
         <div className="whdetails__container">
           <div className="whdetails__container-title">
-            {/* Link to Warehouse List Page -- need to edit? */}
             <Link to="/" className="whdetails__back">
               <img
                 className="whdetails__arrowback"
@@ -88,9 +76,7 @@ export default function WarehouseDetails() {
                 alt="Arrow back icon"
               />
             </Link>
-            {/* <h1 className="whdetails__name">{warehouse_name}</h1> */}
-            <h1 className="whdetails__name">Washington</h1>
-            {/* Link to Warehouse Edit Page -- need to edit? */}
+            <h1 className="whdetails__name">{warehouse_name}</h1>
             <Link to="/" className="whdetails__edit">
               Edit
             </Link>
@@ -98,93 +84,81 @@ export default function WarehouseDetails() {
               <img src={edit} alt="Edit icon" />
             </Link>
           </div>
-
           <hr className="whdetails__divider" />
           <div className="whdetails__container-info">
             <div className="whdetails__subcontainer--address">
               <h4 className="whdetails__subheader">Warehouse Address:</h4>
-              {/* <p className="whdetails__details">{address}, {city}, {country}</p> */}
               <p className="whdetails__details">
-                1234 Address Street, Toronto, Canada
+                {address}, {city}, {country}
               </p>
             </div>
             <hr className="whdetails__divider--vertical" />
             <div className="whdetails__container-contact">
               <div className="whdetails__subcontainer--name">
                 <h4 className="whdetails__subheader">Contact Name:</h4>
-                {/* <p className="whdetails__details">{contact_name}</p> */}
-                <p className="whdetails__details">Name Name</p>
-                {/* <p className="whdetails__details">{contact_position}</p> */}
-                <p className="whdetails__details">Warehouse Manager</p>
+                <p className="whdetails__details">{contact_name}</p>
+                <p className="whdetails__details">{contact_position}</p>
               </div>
               <div className="whdetails__subcontainer--info">
                 <h4 className="whdetails__subheader">Contact Information</h4>
-                {/* <p className="whdetails__details">{contact_phone}</p> */}
-                <p className="whdetails__details">+1 (647)-123-4567 </p>
-                {/* <p className="whdetails__details">{contact_email}</p> */}
-                <p className="whdetails__details">email@email.com</p>
+                <p className="whdetails__details">{contact_phone}</p>
+                <p className="whdetails__details">{contact_email}</p>
               </div>
             </div>
           </div>
-          <hr className="whdetails__divider" />
         </div>
       </section>
-      <section className="whdetails">
 
-
-        {/* INVENTORY DETAILS */}
-        <section className="whinventory">
-        <div className="whinventory__container">
-        <div>
-      {inventoryItems.map((item) => (
-        <div key={item.id} className="inventory__group">
-          <h4 className="inventory__line"></h4>
-          <div className="table__mastersection">
-            <div className="table__divsection">
-              <div className="table__section">
-                <div className="table__header">Inventory Item</div>
-                <button className="table__row--name">{item.name} 
-                <img src={chevron_right} />
-                </button>               
-              </div>
-              <div className="table__section">
-                <div className="table__header">Category</div>
-                <div className="table__row--category">{item.category}</div>
+      {/* SELECTED WAREHOUSE INVENTORY LIST */}
+      <section className="whdetails__inventory">
+        <div className="whdetails__inventory-container">
+          {inventoryItems.map((item) => (
+            <div key={item.id} className="whdetails__inventory-group">
+              <hr className="whdetails__divider" />
+              <div className="whdetails__inventory-tablesection">
+                <div className="whdetails__inventory-divsection">
+                  <div className="whdetails__inventory-section">
+                    <h3 className="whdetails__inventory-header">
+                      Inventory Item
+                    </h3>
+                    <button className="whdetails__inventory-row-name">
+                      {item_name}
+                      <img src={chevron_right} alt="Right Chevron" />
+                    </button>
+                  </div>
+                  <div className="whdetails__inventory-section">
+                    <h3 className="whdetails__inventory-header">Category</h3>
+                    <p className="whdetails__inventory-row-category">
+                      {category}
+                    </p>
+                  </div>
+                </div>
+                <div className="whdetails__inventory-divsection">
+                  <div className="whdetails__inventory-section">
+                    <h3 className="whdetails__inventory-header">Status</h3>
+                    <p className="whdetails__inventory-row-status">
+                      {status}
+                    </p>
+                  </div>
+                  <div className="whdetails__inventory-section">
+                    <h3 className="whdetails__inventory-header">Quantity</h3>
+                    <p className="whdetails__inventory-row-qty">
+                      {total_quantity}
+                    </p>
+                  </div>
+                </div>
+                <div className="whdetails__inventory-divsection--actions">
+                  <div className="whdetails__inventory-section">
+                    <h3 className="whdetails__inventory-header">Actions</h3>
+                    <img src={delete_icon} alt="Delete Icon" />
+                    <img src={edit_icon} alt="Edit Icon" />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="table__divsection">
-              <div className="table__section">
-                <div className="table__header">Status</div>
-                <div className="table__row--status">{item.status}</div>
-              </div>
-              <div className="table__section">
-                <div className="table__header">Quantity</div>
-                <div className="table__row--qty">{item.quantity}</div>
-              </div>
-            </div>
-            <div className="table__divsection--actions">
-              <div className="table__section">
-                <div className="table__header">Actions</div>
-                <img src={delete_icon} />
-                <img src={edit_icon} />
-              </div>
-            </div>
-            </div>
-          <div className="table__mastersection--icons">
-            <div className="table__divsection--rows">
-              <img src={delete_icon} />
-              <img src={edit_icon} />
-            </div>
-          </div>
+          ))}
         </div>
-      ))}
-    </div>
-        </div>
-        </section>
       </section>
     </>
-
-
-
   );
 }

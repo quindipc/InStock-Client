@@ -3,8 +3,9 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+//// WAREHOUSE DETAILS STYLES ////
 .whdetails {
-   //TODO: need to include font styles for everything
+  //TODO: need to include font styles for everything
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,4 +122,152 @@
       }
     }
   }
+
+  ////// WAREHOUSE INVENTORY LIST STYLES -- TONY WILL EDIT LATER////
+  &__inventory{
+    &--group {
+       justify-content: left;
+     }
+    
+    &--divider {
+       width: 21.4375rem;
+       height: 0.0625rem;
+       flex-shrink: 0;
+       background-color: $cloud;
+    
+       @include tablet {
+         width: 44rem;
+         height: 0.0625rem;
+         flex-shrink: 0;
+       }
+    
+       @include desktop {
+         width: 63.75rem;
+         height: 0.0625rem;
+         flex-shrink: 0;
+       }
+     }
+    
+    &--tablesection {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+    
+       &--icons {
+         justify-content: end;
+         padding-left: 1.5rem;
+         padding-right: 1.5rem;
+         margin-bottom: 1rem;
+    
+         @include tablet {
+           display: none;
+         }
+       }
+     }
+    
+    &--divsection {
+       display: flex;
+       flex-direction: column;
+    
+       @include tablet {
+         flex-direction: row;
+       }
+    
+       &--rows {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+       }
+    
+       &--actions {
+         @include mobile {
+           display: none;
+         }
+    
+         @include tablet {
+           display: flex;
+         }
+       }
+     }
+    
+    &--section {
+       padding-top: 1rem;
+       height: 4rem;
+       margin: 1rem;
+       min-width: 6rem;
+     }
+    
+    &--header {
+       color: $slate;
+    
+       font-family: Titillium Web;
+       font-size: 0.6875rem;
+       font-style: normal;
+       font-weight: 600;
+       line-height: 1rem;
+       text-transform: uppercase;
+    
+       @include tablet {
+         background-color: rgba(247, 248, 249, 0.7);
+       }
+     }
+    
+    &--row {
+       &--name {
+         color: $indigo;
+    
+         /* M H3 */
+         font-family: Titillium Web;
+         font-size: 0.8125rem;
+         font-style: normal;
+         font-weight: 600;
+         line-height: 1.25rem; /* 153.846% */
+         background-color: $white;
+         border: none;
+         display: flex;
+         align-items: center;
+       }
+    
+       &--category {
+         color: $black;
+    
+         /* M P2 */
+         font-family: Titillium Web;
+         font-size: 0.8125rem;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 1.25rem; /* 153.846% */
+       }
+    
+       &--status {
+         display: inline-flex;
+         padding: 0.25rem 0.5rem;
+         align-items: center;
+         border-radius: 1.25rem;
+         background-color: rgba(21, 132, 99, 0.07);
+         color: $green;
+    
+         /* M H4 */
+         font-family: Titillium Web;
+         font-size: 0.6875rem;
+         font-style: normal;
+         font-weight: 600;
+         line-height: 1rem; /* 145.455% */
+         text-transform: uppercase;
+       }
+    
+       &--qty {
+         color: $black;
+    
+         /* M P2 */
+         font-family: Titillium Web;
+         font-size: 0.8125rem;
+         font-style: normal;
+         font-weight: 400;
+         line-height: 1.25rem; /* 153.846% */
+       }
+     }
+
+  }
 }
+
