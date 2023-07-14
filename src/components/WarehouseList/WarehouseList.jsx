@@ -2,8 +2,19 @@ import './WarehouseList.scss';
 import chevron from '../../assets/Icons/chevron_right-24px.svg'; 
 import trash from '../../assets/Icons/delete_outline-24px.svg'; 
 import edit from '../../assets/Icons/edit-24px.svg'; 
+import axios from 'axios';
 
 export default function WarehouseList({setOpenModal}) {
+
+    axios.get('/api/warehouses')
+        .then(response => {
+            const data = response.data;
+            const warehouses = data.map(()=> {
+                
+            })
+        })
+
+
     return(
         <div className='warehouses'>
             <div className='warehouses__header'>
