@@ -77,10 +77,10 @@ export default function WarehouseDetails() {
               />
             </Link>
             <h1 className="whdetails__name">{warehouse_name}</h1>
-            <Link to="/" className="whdetails__edit">
+            <Link to="/edit-warehouse/:id" className="whdetails__edit">
               Edit
             </Link>
-            <Link to="/" className="whdetails__edit-icon">
+            <Link to="/edit-warehouse/:id" className="whdetails__edit-icon">
               <img src={edit} alt="Edit icon" />
             </Link>
           </div>
@@ -121,10 +121,12 @@ export default function WarehouseDetails() {
                     <h3 className="whdetails__inventory-header">
                       Inventory Item
                     </h3>
+                    <Link to="/inventory-item/:id">
                     <button className="whdetails__inventory-row-name">
                       {item_name}
                       <img src={chevron_right} alt="Right Chevron" />
                     </button>
+                    </Link>
                   </div>
                   <div className="whdetails__inventory-section">
                     <h3 className="whdetails__inventory-header">Category</h3>
@@ -150,8 +152,14 @@ export default function WarehouseDetails() {
                 <div className="whdetails__inventory-divsection--actions">
                   <div className="whdetails__inventory-section">
                     <h3 className="whdetails__inventory-header">Actions</h3>
+
+                    <Link to="/delete-inventory-item/:id">
                     <img src={delete_icon} alt="Delete Icon" />
+                    </Link>
+
+                    <Link to="edit-inventory-item/:id">
                     <img src={edit_icon} alt="Edit Icon" />
+                    </Link>
                   </div>
                 </div>
               </div>
