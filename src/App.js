@@ -1,31 +1,28 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
+import "./App.scss";
 
-import './App.scss';
-import WarehousePage from './pages/warehousePage';
-import InventoryPage from './pages/inventoryPage';
-import Header from './components/Header/Header';
+// Dependencies
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-function App() {
+// Pages
+import WarehousePage from "./pages/WarehousePage/WarehousePage";
+import InventoryPage from "./pages/InventoryPage/InventoryPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+
+export default function App() {
   return (
-   <BrowserRouter>
-   <Header />
- 
-    <Routes>
-    
-      <Route path="/" element={<WarehousePage />}/>
-      <Route path="/warehouse" element={<WarehousePage />}/>
-      <Route path="/inventory" element={<InventoryPage />}/>
-      
-{/* this is part of the footer component edit later */}
-      {/* <main className='main'></main> */}
-
-    </Routes>
-    <Footer />
-   </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        {/* <Header /> */}
+        {/* <main className="main"> */}
+          <Route path="/" element={<WarehousePage />} />
+          <Route path="/warehouses" element={<WarehousePage />} />
+          <Route path="/inventory" element={<InventoryPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        {/* </main> */}
+        {/* <Footer /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
