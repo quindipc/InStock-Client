@@ -70,6 +70,6 @@
 @mixin vertical-divider {
   border: none;
   border-right: 1px solid $cloud;
-  height: 5em;
+  // height: 5em;  //This should only be the height for one of the components, please remove 
   margin-right: auto;
 }

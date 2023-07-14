@@ -8,7 +8,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import Footer from './components/Footer/Footer';
 import WarehousePage from './pages/warehousePage';
 import InventoryPage from './pages/InventoryPage';
+<<<<<<< HEAD
 import TestPage from './pages/TextPage';
+=======
+>>>>>>> develop
 
 export default function App() {
   return (

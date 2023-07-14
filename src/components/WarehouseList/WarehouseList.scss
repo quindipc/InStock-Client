@@ -112,17 +112,31 @@
   }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 /* add in the single warehouse componets styling here  */
 .warehouse{
   &__item {
     padding: 2rem;
     width: 100%;
     border-bottom: 1px solid $cloud;
+<<<<<<< HEAD
     // display: flex;
     // flex-direction: row;
     justify-content: center;
     @include tablet{
       display: flex;
+=======
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include tablet{
+      display: flex;
+      flex-direction: row;
+
+>>>>>>> develop
     }
     @include desktop{
       padding: 2.5rem;
@@ -197,4 +211,8 @@
 button{
   all: unset;
   cursor: pointer;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> develop
