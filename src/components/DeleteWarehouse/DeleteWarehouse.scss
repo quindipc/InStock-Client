@@ -9,27 +9,22 @@
     position: relative;
     background-color: $white;
     width: 42rem;
-    max-width: 80%;
     transform: scale(0);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
         @include tablet{
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%) scale(0);
             z-index: 10;
-
-            // width: 42rem;
-            // height: 100%;
-            // flex-shrink: 0;  
-            // margin: 11.56rem 3rem 0rem 3rem;  
-            // background-color: $white;
         }
     &__container{
-        // background-color: $white;
-        @include tablet {
-            // background-color: $black;
-            opacity: 0.699999988079071;
-        }
+        width: 100%;
     }
     &__close{
         float: right;
@@ -68,19 +63,12 @@
 
 #overlay{
     position: fixed;
-    // opacity: 0;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: $overlay;
-    pointer-events: none;
 }
-#overlay.active{
-    opacity: 1;
-    pointer-events: all;
-}
-
 .delete.active{
     transform: scale(1);
     @include tablet{
