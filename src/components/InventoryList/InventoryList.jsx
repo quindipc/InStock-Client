@@ -1,15 +1,18 @@
-import './WarehouseList.scss';
+import './InventoryList.scss';
 import chevron from '../../assets/Icons/chevron_right-24px.svg';
 import trash from '../../assets/Icons/delete_outline-24px.svg';
 import edit from '../../assets/Icons/edit-24px.svg';
+import { useEffect, useState } from 'react';
 
-export default function WarehouseList() {
+export default function InventoryList() {
+    let [inventoryList, setInventoryList] = useState([])
+    useEffec
     return(
         <div className='warehouses'>
             <div className='warehouses__header'>
-                <h1 className='warehouses__title'>Warehouses</h1>
+                <h1 className='warehouses__title'>Inventory</h1>
                 <input type="text" id="searchbar" className='warehouses__searchbar' placeholder="Search..."></input>
-                <button className='warehouses__button'> <h3>+ Add New Warehouse</h3></button>
+                <button className='warehouses__button'> <h3>+ Add New Item</h3></button>
             </div>
             {/* add in the single warehouse componets here  */}
             <div className='warehouse__item'>
@@ -46,5 +49,4 @@ export default function WarehouseList() {
             </div>
         </div>
     )
-}
-
+    }
