@@ -1,8 +1,11 @@
 import "./App.scss";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Dependencies
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import WarehousePage from './pages/warehousePage';
+// import InventoryPage from './pages/inventoryPage';
+// import ViewInventoryPage from './pages/ViewInventoryPage';
+// import Header from './components/Header/Header';
 
 // Pages
 import WarehousePage from "./pages/WarehousePage/WarehousePage";
@@ -16,6 +19,8 @@ import AddNewInventoryPage from "./pages/InventoryPage/AddNewInventoryItemPage/A
 import DeleteInventoryItemPage from "./pages/InventoryPage/DeleteInventoryItemPage/DeleteInventoryItemPage";
 import EditInventoryItemPage from "./pages/InventoryPage/EditInventoryItemPage/EditInventoryItem";
 
+import InventoryItemPage from "./pages/InventoryPage/InventoryItemPage/InventoryItemPage";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -27,6 +32,7 @@ export default function App() {
         <Route path="/delete-warehouse" element={<DeleteWarehousePage />} />
         <Route path="/edit-warehouse/:id" element={<EditWarehousePage />} />
         <Route path="/inventory" element={<InventoryPage />} />
+        <Route path="/inventory/:id" element={<InventoryItemPage />} />
         <Route path="/add-new-inventory-item" element={<AddNewInventoryPage />} />
         <Route path="/delete-inventory-item" element={<DeleteInventoryItemPage />} />
         <Route path="/edit-inventory=item" element={<EditInventoryItemPage />} />
