@@ -27,7 +27,6 @@
         }
 
         @include desktop {
-            margin: auto;
             max-width: 80rem;
         }
 
@@ -49,6 +48,12 @@
 
     &__editicon {
 
+        
+        &--framelink {
+            display: flex;
+            margin-left: auto;
+        }
+
         &--frame {
             display: flex;
             width: 2.25rem;
@@ -59,7 +64,7 @@
             flex-shrink: 0;
             border-radius: 1.25rem;
             background: $indigo;
-            margin-left: auto;
+            
 
         }
 

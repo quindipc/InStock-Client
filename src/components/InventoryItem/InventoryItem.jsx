@@ -44,7 +44,7 @@ export default function InventoryItem() {
         <div className="inventoryItem__container">
           <div className="inventoryItem__header">
             {/* ADD NEW WAREHOUSE HEADER */}
-            <Link to="/" className="inventoryItem__back">
+            <Link to="/inventory" className="inventoryItem__back">
               <img
                 className="inventoryItem__arrowback"
                 src={arrowback}
@@ -52,7 +52,8 @@ export default function InventoryItem() {
               />
             </Link>
             <h1 className="inventoryItem__title">{inventoryDetail.item_name}</h1>
-
+            
+            <Link to="/edit-inventory=item" className="inventoryItem__editicon--framelink">
             <div className="inventoryItem__editicon--frame">
               <img
                 className="inventoryItem__editicon--picture"
@@ -60,6 +61,8 @@ export default function InventoryItem() {
                 alt="edit icon"
               />
             </div>
+            </Link>
+
           </div>
           <hr className="inventoryItem__divider" />
         </div>
