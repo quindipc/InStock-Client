@@ -36,9 +36,29 @@ export default function AddNewWarehouse() {
     }));
   };
 
-
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
+    console.log(formData); // delete after testing
+
+    setError(false);
+
+    axios
+      .post(`${BASE_URL}`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        setSuccess(true);
+        setTimeout(() => {
+          navigate("/");
+          setFormData(initialFormData); // Reset form data
+          setError(false);
+        }, 3000);
+      })
+      .catch((error) => {
+        setError(true);
+      });
 
     const allFieldsFilled = Object.values(formData).every(
       (value) => value !== "",
@@ -47,23 +67,6 @@ export default function AddNewWarehouse() {
       setError(true);
       return;
     }
-
-    setError(false);
-
-    axios
-      .post(`${BASE_URL}`,formData)
-      .then(() => {
-        setSuccess(true); 
-        setTimeout(() => {
-          navigate("/");
-          setFormData(initialFormData);
-          setError(false);
-          setSuccess(false);
-        }, 3000);
-      })
-      .catch((error) => {
-        setError(true);
-      });
   };
 
   const cancelHandler = (event) => {
@@ -109,7 +112,7 @@ export default function AddNewWarehouse() {
                 <input
                   className={inputClassName}
                   id="name"
-                  name=""
+                  name="warehouse_name"
                   value={formData.warehouse_name}
                   type="text"
                   placeholder="Toronto"
@@ -182,10 +185,7 @@ export default function AddNewWarehouse() {
               </div>
 
               <div className="newwh__container-input">
-                <label
-                  htmlFor="contactposition"
-                  className="newwh__subheader"
-                >
+                <label htmlFor="contactposition" className="newwh__subheader">
                   Position
                 </label>
                 <input
@@ -206,9 +206,9 @@ export default function AddNewWarehouse() {
                 <input
                   className={inputClassName}
                   id="contactnumber"
-                  name="contact_number"
-                  value={formData.contact_number}
-                  type="text"
+                  name="contact_phone"
+                  value={formData.contact_phone || ""}
+                  type="tel"
                   placeholder="+1 (647) 504-0911"
                   onChange={handleChange}
                 />

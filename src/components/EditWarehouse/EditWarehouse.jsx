@@ -1,15 +1,16 @@
 import "./EditWarehouse.scss";
 
 // Dependancies
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 // Assets
 import arrowback from "../../assets/Icons/arrow_back-24px.svg";
 
-export default function EditWarehouse() {
+export default function EditWarehouse(selectedWarehouse) {
   const navigate = useNavigate();
+  const location = useLocation()
   const BASE_URL = "http://localhost:8080/api/warehouses";
 
   const initialFormData = {
@@ -27,6 +28,14 @@ export default function EditWarehouse() {
   const [showSuccess, setSuccess] = useState(false);
   const [showError, setError] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+
+
+  useEffect(() => {
+    if (location.state && location.state.selectedWarehouse) {
+      const { selectedWarehouse } = location.state;
+      setFormData(selectedWarehouse);
+    }
+  }, [location.state]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -46,7 +55,7 @@ export default function EditWarehouse() {
     if (!allFieldsFilled) {
       setError(true);
       return;
-    }
+    } 
 
     setError(false);
 
@@ -105,7 +114,7 @@ export default function EditWarehouse() {
                   name="warehouse_name"
                   value={formData.warehouse_name}
                   type="text"
-                  placeholder="ahh"
+                  placeholder="Warehouse Name"
                   onChange={handleChange}
                 />
               </div>
