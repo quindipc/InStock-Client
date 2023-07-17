@@ -9,7 +9,7 @@ import chevron from '../../assets/Icons/chevron_right-24px.svg';
 import trash from '../../assets/Icons/delete_outline-24px.svg';
 import edit from '../../assets/Icons/edit-24px.svg';
 
-export default function WarehouseList({ setOpenModal }) {
+export default function WarehouseList({ setOpenModal, setWarehouse }) {
     const BASE_URL = "http://localhost:8080"; 
 
     const [warehouses, setWarehouses] = useState([]);
@@ -67,10 +67,10 @@ export default function WarehouseList({ setOpenModal }) {
             </div>
           </div>
           <div className='warehouse__icons'>
-            <button id='delete__button' className='warehouse__icons-delete' onClick={() => { setOpenModal(true) }}>
-              <Link to={`/delete-warehouse/${warehouse.id}`}>
+            <button id='delete__button' className='warehouse__icons-delete' onClick={() => { setWarehouse(warehouse); setOpenModal(true) }}>
+              {/* <Link to={`/delete-warehouse/${warehouse.id}`}>  */}
                 <img src={trash} alt="delete trash can" />
-              </Link>
+              {/* </Link> */}
             </button>
 
             <button id='edit__button' className='warehouse__icons-edit'>

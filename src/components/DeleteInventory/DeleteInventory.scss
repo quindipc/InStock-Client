@@ -1,0 +1,101 @@
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.delete{
+    z-index: 10;
+    padding: 1rem;
+    position: relative;
+    background-color: $white;
+    transform: scale(0);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+        @include tablet{
+            width: 42rem;
+            height: 16.375rem;
+            position: fixed;
+            top: 317px;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            z-index: 10;
+        }
+    &__container{
+        width: 100%;
+    }
+    &__close{
+        float: right;
+    }
+    &__title{
+        padding-top: 3.75rem;
+        @include tablet{
+        padding-top: 2.5rem;
+
+        }
+    }
+    &__subtext{
+        padding-top: 1rem;
+    }
+    &__buttons{
+        position: fixed; 
+        bottom: 0%;
+        width: 97%;
+        display: flex;
+        justify-content: space-around;
+        @include tablet{
+            justify-content: end;
+        }
+        &-cancel{
+            display: inline-flex;
+            background-color: $white;
+            border: solid 1px $cloud;
+            width: 10.1875rem;
+            padding: 0.5rem 2rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.25rem;
+            margin: 1rem;
+            @include tablet{
+                max-width: 4.44rem;
+                padding: 0.5rem 1rem;
+                margin-right: 1rem;
+            }
+        }
+        &-delete{
+            color: $white;
+            display: inline-flex;
+            background-color: $red;
+            border: solid 1px $red;
+            width: 10.1875rem;
+            padding: 0.5rem 2rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.25rem;
+            margin: 1rem;
+            @include tablet{
+                max-width: 4.44rem;
+                padding: 0.5rem 1rem;
+                margin-left: 0rem;
+            }
+        }
+    }
+}
+
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $overlay;
+}
+.delete.active{
+    transform: scale(1);
+    @include tablet{
+        transform: translate(-50%,-50%) scale(1);
+    }
+}
