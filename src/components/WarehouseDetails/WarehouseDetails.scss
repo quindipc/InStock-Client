@@ -38,6 +38,7 @@
   &__name {
     padding: 0 0.5rem;
   }
+
   &__edit {
     display: none;
 
@@ -64,7 +65,13 @@
     margin-left: auto;
     background-color: $indigo;
     border-radius: 50%;
-    padding: 0.3rem;
+
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
 
     @include tablet {
       display: none;
@@ -88,8 +95,10 @@
       padding-left: 2rem;
     }
   }
+
   &__subcontainer--address {
     padding-bottom: 2.25rem;
+
     @include tablet {
       margin-right: auto;
     }
@@ -113,6 +122,7 @@
 
   &__divider {
     @include horizontal-divider;
+
     &--vertical {
       display: none;
 
@@ -123,151 +133,289 @@
     }
   }
 
-  ////// WAREHOUSE INVENTORY LIST STYLES -- TONY WILL EDIT LATER////
-  &__inventory{
-    &--group {
-       justify-content: left;
-     }
-    
-    &--divider {
-       width: 21.4375rem;
-       height: 0.0625rem;
-       flex-shrink: 0;
-       background-color: $cloud;
-    
-       @include tablet {
-         width: 44rem;
-         height: 0.0625rem;
-         flex-shrink: 0;
-       }
-    
-       @include desktop {
-         width: 63.75rem;
-         height: 0.0625rem;
-         flex-shrink: 0;
-       }
-     }
-    
-    &--tablesection {
-       display: flex;
-       flex-direction: row;
-       justify-content: space-between;
-    
-       &--icons {
-         justify-content: end;
-         padding-left: 1.5rem;
-         padding-right: 1.5rem;
-         margin-bottom: 1rem;
-    
-         @include tablet {
-           display: none;
-         }
-       }
-     }
-    
-    &--divsection {
-       display: flex;
-       flex-direction: column;
-    
-       @include tablet {
-         flex-direction: row;
-       }
-    
-       &--rows {
-         display: flex;
-         flex-direction: row;
-         justify-content: space-between;
-       }
-    
-       &--actions {
-         @include mobile {
-           display: none;
-         }
-    
-         @include tablet {
-           display: flex;
-         }
-       }
-     }
-    
-    &--section {
-       padding-top: 1rem;
-       height: 4rem;
-       margin: 1rem;
-       min-width: 6rem;
-     }
-    
-    &--header {
-       color: $slate;
-    
-       font-family: Titillium Web;
-       font-size: 0.6875rem;
-       font-style: normal;
-       font-weight: 600;
-       line-height: 1rem;
-       text-transform: uppercase;
-    
-       @include tablet {
-         background-color: rgba(247, 248, 249, 0.7);
-       }
-     }
-    
-    &--row {
-       &--name {
-         color: $indigo;
-    
-         /* M H3 */
-         font-family: Titillium Web;
-         font-size: 0.8125rem;
-         font-style: normal;
-         font-weight: 600;
-         line-height: 1.25rem; /* 153.846% */
-         background-color: $white;
-         border: none;
-         display: flex;
-         align-items: center;
-       }
-    
-       &--category {
-         color: $black;
-    
-         /* M P2 */
-         font-family: Titillium Web;
-         font-size: 0.8125rem;
-         font-style: normal;
-         font-weight: 400;
-         line-height: 1.25rem; /* 153.846% */
-       }
-    
-       &--status {
-         display: inline-flex;
-         padding: 0.25rem 0.5rem;
-         align-items: center;
-         border-radius: 1.25rem;
-         background-color: rgba(21, 132, 99, 0.07);
-         color: $green;
-    
-         /* M H4 */
-         font-family: Titillium Web;
-         font-size: 0.6875rem;
-         font-style: normal;
-         font-weight: 600;
-         line-height: 1rem; /* 145.455% */
-         text-transform: uppercase;
-       }
-    
-       &--qty {
-         color: $black;
-    
-         /* M P2 */
-         font-family: Titillium Web;
-         font-size: 0.8125rem;
-         font-style: normal;
-         font-weight: 400;
-         line-height: 1.25rem; /* 153.846% */
-       }
-     }
-
-  }
 }
 
+////// WAREHOUSE INVENTORY LIST STYLES -- TONY WILL EDIT LATER////
+.whdetails__inventory {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  &-container {
+
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 1rem;
+    background-color: $white;
+    border-radius: 4px; // may need to be changed
+    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+    margin-top: 0rem;
+  }
+
+  &-section {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+
+    @include tablet {
+
+      width: 100%;
+    }
+
+  }
+
+  &-group {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+
+      flex-direction: row;
+    
+    }
+
+  }
+
+
+  &-subheader {
+
+    color: $slate;
+    text-transform: uppercase;
+
+      @include tablet {
+        display: none;
+      }
+
+    &--actions {
+
+      display: none;
+
+      @include tablet {
+
+        display: flex;
+        color: $slate;
+        text-transform: uppercase;
+        display:none;
+
+      }
+    }
+  }
+
+
+  &-tablesection {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+  }
+
+  &-divsection {
+    width: 50%;
+
+    @include tablet{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+    }
+
+    &--actions {
+
+      width: 100%;
+
+      @include tablet {
+        width: 10%;
+      }
+
+    }
+
+
+  }
+
+  &-row {
+    display: flex;
+    min-height: 2rem;
+    align-items: center;
+
+
+    &-button {
+
+      text-decoration: none;
+
+
+
+    }
+
+    &-chevron {
+
+      width: 1.25rem;
+      height: 1.25rem;
+
+
+    }
+
+
+  }
+
+
+
+
+}
+
+
+
+.whdetails__actions--icons {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+//   &--group {
+//      justify-content: left;
+//    }
+
+//   &--divider {
+//      width: 21.4375rem;
+//      height: 0.0625rem;
+//      flex-shrink: 0;
+//      background-color: $cloud;
+
+//      @include tablet {
+//        width: 44rem;
+//        height: 0.0625rem;
+//        flex-shrink: 0;
+//      }
+
+//      @include desktop {
+//        width: 63.75rem;
+//        height: 0.0625rem;
+//        flex-shrink: 0;
+//      }
+//    }
+
+//   &--tablesection {
+//      display: flex;
+//      flex-direction: row;
+//      justify-content: space-between;
+
+//      &--icons {
+//        justify-content: end;
+//        padding-left: 1.5rem;
+//        padding-right: 1.5rem;
+//        margin-bottom: 1rem;
+
+//        @include tablet {
+//          display: none;
+//        }
+//      }
+//    }
+
+//   &--divsection {
+//      display: flex;
+//      flex-direction: column;
+
+//      @include tablet {
+//        flex-direction: row;
+//      }
+
+//      &--rows {
+//        display: flex;
+//        flex-direction: row;
+//        justify-content: space-between;
+//      }
+
+//      &--actions {
+//        @include mobile {
+//          display: none;
+//        }
+
+//        @include tablet {
+//          display: flex;
+//        }
+//      }
+//    }
+
+//   &--section {
+//      padding-top: 1rem;
+//      height: 4rem;
+//      margin: 1rem;
+//      min-width: 6rem;
+//    }
+
+//   &--header {
+//      color: $slate;
+
+//      font-family: Titillium Web;
+//      font-size: 0.6875rem;
+//      font-style: normal;
+//      font-weight: 600;
+//      line-height: 1rem;
+//      text-transform: uppercase;
+
+//      @include tablet {
+//        background-color: rgba(247, 248, 249, 0.7);
+//      }
+//    }
+
+//   &--row {
+//      &--name {
+//        color: $indigo;
+
+//        /* M H3 */
+//        font-family: Titillium Web;
+//        font-size: 0.8125rem;
+//        font-style: normal;
+//        font-weight: 600;
+//        line-height: 1.25rem; /* 153.846% */
+//        background-color: $white;
+//        border: none;
+//        display: flex;
+//        align-items: center;
+//      }
+
+//      &--category {
+//        color: $black;
+
+//        /* M P2 */
+//        font-family: Titillium Web;
+//        font-size: 0.8125rem;
+//        font-style: normal;
+//        font-weight: 400;
+//        line-height: 1.25rem; /* 153.846% */
+//      }
+
+//      &--status {
+//        display: inline-flex;
+//        padding: 0.25rem 0.5rem;
+//        align-items: center;
+//        border-radius: 1.25rem;
+//        background-color: rgba(21, 132, 99, 0.07);
+//        color: $green;
+
+//        /* M H4 */
+//        font-family: Titillium Web;
+//        font-size: 0.6875rem;
+//        font-style: normal;
+//        font-weight: 600;
+//        line-height: 1rem; /* 145.455% */
+//        text-transform: uppercase;
+//      }
+
+//      &--qty {
+//        color: $black;
+
+//        /* M P2 */
+//        font-family: Titillium Web;
+//        font-size: 0.8125rem;
+//        font-style: normal;
+//        font-weight: 400;
+//        line-height: 1.25rem; /* 153.846% */
+//      }
+//    }
+
+// }
