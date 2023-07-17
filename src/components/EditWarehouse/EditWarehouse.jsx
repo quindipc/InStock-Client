@@ -13,7 +13,7 @@ export default function EditWarehouse() {
   const BASE_URL = "http://localhost:8080/api/warehouses";
 
   const initialFormData = {
-    name: "",
+    warehouse_name: "",
     address: "",
     city: "",
     country: "",
@@ -102,8 +102,8 @@ export default function EditWarehouse() {
                 <input
                   className={inputClassName}
                   id="name"
-                  name="name"
-                  value={formData.name}
+                  name="warehouse_name"
+                  value={formData.warehouse_name}
                   type="text"
                   placeholder="ahh"
                   onChange={handleChange}
