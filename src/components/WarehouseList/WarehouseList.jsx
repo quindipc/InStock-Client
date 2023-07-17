@@ -73,9 +73,9 @@ export default function WarehouseList({ setOpenModal, setWarehouse }) {
                 <img src={trash} alt="delete trash can" />
             </button>
 
-            <button id='edit__button' className='warehouse__icons-edit'>
-              <Link to={`/edit-warehouse/${warehouse.id}`} className='no_underline'>
-                <img className='grow' src={edit} alt="edit pencil" />
+            <button id="edit__button" className="warehouse__icons-edit">
+              <Link to={{ pathname: `/edit-warehouse/${warehouse.id}`, state: { selectedWarehouse: warehouse } }} className='no_underline'>
+                <img src={edit} alt="edit pencil" />
               </Link>
             </button>
           </div>

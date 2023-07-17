@@ -11,31 +11,55 @@ import arrowback from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function AddNewWarehouse() {
   const navigate = useNavigate();
-  const BASE_URL = "http://localhost:8000/";
+  const BASE_URL = "http://localhost:8080/api/warehouses";
 
   const initialFormData = {
-    wh__name: "",
-    wh__address: "",
-    wh__city: "",
-    wh__country: "",
-    wh__contactname: "",
-    wh__contactnumber: "",
-    wh__contactposition: "",
-    wh__contactemail: "",
-  }
+    warehouse_name: "",
+    address: "",
+    city: "",
+    country: "",
+    contact_name: "",
+    contact_position: "",
+    contact_phone: "",
+    contact_email: "",
+  };
 
-  const [formData, setFormData] = useState(initialFormData)
+  const [formData, setFormData] = useState(initialFormData);
   const [showSuccess, setSuccess] = useState(false);
   const [showError, setError] = useState(false);
 
   const handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(formData); // delete after testing
+
+    setError(false);
+
+    axios
+      .post(`${BASE_URL}`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then(() => {
+        setSuccess(true);
+        setTimeout(() => {
+          navigate("/");
+          setFormData(initialFormData); // Reset form data
+          setError(false);
+        }, 3000);
+      })
+      .catch((error) => {
+        setError(true);
+      });
 
     const allFieldsFilled = Object.values(formData).every(
       (value) => value !== "",
@@ -44,29 +68,8 @@ export default function AddNewWarehouse() {
       setError(true);
       return;
     }
-
-    // Resets the error state
-    setError(false);
-    
-    // POST request to the server
-    // TODO: Do I need to add a useEffect here???
-    axios
-    // TODO: Test to see if this send to warehouses
-    .post(`${BASE_URL}warehouses`, formData)
-    .then(() => {
-      setSuccess(true);
-      setTimeout(() => {
-        navigate("/");
-        setFormData(initialFormData);
-        setError(false);
-        setSuccess(false);
-      }, 3000);
-    })
-    .catch((error) => {
-      setError(true);
-    });
   };
-  
+
   const cancelHandler = (event) => {
     event.preventDefault();
     const confirmCancel = window.confirm(
@@ -77,7 +80,9 @@ export default function AddNewWarehouse() {
     }
   };
 
-  const inputClassName = showError ? "newwh__input newwh__input--error" : "newwh__input";
+  const inputClassName = showError
+    ? "newwh__input newwh__input--error"
+    : "newwh__input";
 
   return (
     <section className="newwh">
@@ -99,149 +104,152 @@ export default function AddNewWarehouse() {
         <form className="newwh__form" onSubmit={handleSubmit}>
           {/* WAREHOUSE DETAILS */}
           <div className="newwh__container-form">
-          <div className="newwh__warehousedetails">
-            <h2 className="newwh__subtitle">Warehouse Details</h2>
-            <div className="newwh__container-input">
-              <label htmlFor="wh__name" className="newwh__subheader">
-                Warehouse Name
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__name"
-                name="wh__name"
-                value={formData.wh__name}
-                type="text"
-                placeholder="Toronto"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="newwh__container-input">
-              <label htmlFor="wh__address" className="newwh__subheader">
-                Street Address
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__address"
-                name="wh__address"
-                value={formData.wh__address}
-                type="text"
-                placeholder="123 Pearl Street SW"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="newwh__container-input">
-              <label htmlFor="wh__city" className="newwh__subheader">
-                City
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__city"
-                name="wh__city"
-                value={formData.wh__city}
-                type="text"
-                placeholder="Toronto"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="newwh__container-input">
-              <label htmlFor="wh__country">Country</label>
-              <input
-                className={inputClassName}
-                id="wh__country"
-                name="wh__country"
-                value={formData.wh__country}
-                type="text"
-                placeholder="Canada"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-
-          {/* CONTACT DETAILS */}
-          <hr className="newwh__divider newwh__divider--tablet" />
-          <div className="newwh__contactdetails">
-            <h2 className="newwh__subtitle">Contact Details</h2>
-
-            <div className="newwh__container-input">
-              <label htmlFor="wh__contactname" className="newwh__subheader">
-                Contact Name
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__contactname"
-                name="wh__contactname"
-                value={formData.wh__contactname}
-                type="text"
-                placeholder="Graeme Lyon"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="newwh__container-input">
-              <label htmlFor="wh__contactposition" className="newwh__subheader">
-                Position
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__contactposition"
-                name="wh__contactposition"
-                value={formData.wh__contactposition}
-                type="text"
-                placeholder="Warehouse Manager"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="newwh__container-input">
-              <label htmlFor="wh__contactnumber" className="newwh__subheader">
-                Phone Number
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__contactnumber"
-                name="wh__contactnumber"
-                value={formData.wh__contactnumber}
-                type="text"
-                placeholder="+1 (647) 504-0911"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="newwh__container-input">
-              <label htmlFor="wh__contactemail">Email</label>
-              <input
-                className={inputClassName}
-                id="wh__contactemail"
-                name="wh__contactemail"
-                value={formData.wh__contactemail}
-                type="text"
-                placeholder="glyon@instock.com"
-                onChange={handleChange}
-              />
-            </div>
-
-            {/* Error handling */}
-            {showError && (
-              <div className="newwh__error">
-                Please fill out all the fields.
+            <div className="newwh__warehousedetails">
+              <h2 className="newwh__subtitle">Warehouse Details</h2>
+              <div className="newwh__container-input">
+                <label htmlFor="name" className="newwh__subheader">
+                  Warehouse Name
+                </label>
+                <input
+                  className={inputClassName}
+                  id="name"
+                  name="warehouse_name"
+                  value={formData.warehouse_name}
+                  type="text"
+                  placeholder="Toronto"
+                  onChange={handleChange}
+                />
               </div>
-            )}
-          </div>
+
+              <div className="newwh__container-input">
+                <label htmlFor="address" className="newwh__subheader">
+                  Street Address
+                </label>
+                <input
+                  className={inputClassName}
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  type="text"
+                  placeholder="123 Pearl Street SW"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="newwh__container-input">
+                <label htmlFor="city" className="newwh__subheader">
+                  City
+                </label>
+                <input
+                  className={inputClassName}
+                  id="city"
+                  name="city"
+                  value={formData.city}
+                  type="text"
+                  placeholder="Toronto"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="newwh__container-input">
+                <label htmlFor="country">Country</label>
+                <input
+                  className={inputClassName}
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  type="text"
+                  placeholder="Canada"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            {/* CONTACT DETAILS */}
+            <hr className="newwh__divider newwh__divider--tablet" />
+            <div className="newwh__contactdetails">
+              <h2 className="newwh__subtitle">Contact Details</h2>
+
+              <div className="newwh__container-input">
+                <label htmlFor="contactname" className="newwh__subheader">
+                  Contact Name
+                </label>
+                <input
+                  className={inputClassName}
+                  id="contactname"
+                  name="contact_name"
+                  value={formData.contact_name}
+                  type="text"
+                  placeholder="Graeme Lyon"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="newwh__container-input">
+                <label htmlFor="contactposition" className="newwh__subheader">
+                  Position
+                </label>
+                <input
+                  className={inputClassName}
+                  id="contactposition"
+                  name="contact_position"
+                  value={formData.contact_position}
+                  type="text"
+                  placeholder="Warehouse Manager"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="newwh__container-input">
+                <label htmlFor="contactnumber" className="newwh__subheader">
+                  Phone Number
+                </label>
+                <input
+                  className={inputClassName}
+                  id="contactnumber"
+                  name="contact_phone"
+                  value={formData.contact_phone || ""}
+                  type="tel"
+                  placeholder="+1 (647) 504-0911"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="newwh__container-input">
+                <label htmlFor="contactemail">Email</label>
+                <input
+                  className={inputClassName}
+                  id="contactemail"
+                  name="contact_email"
+                  value={formData.contact_email}
+                  type="text"
+                  placeholder="glyon@instock.com"
+                  onChange={handleChange}
+                />
+              </div>
+
+              {/* Error handling */}
+              {showError && (
+                <div className="newwh__error">
+                  Please fill out all the fields.
+                </div>
+              )}
+            </div>
           </div>
           <div className="newwh__action">
             <div className="newwh__buttons">
-            <button
-              onClick={cancelHandler}
-              className="newwh__button newwh__button--cancel"
-            >
-              Cancel
-            </button>
-            <button onSubmit={handleSubmit} className="newwh__button newwh__button--add">
-              + Add Warehouse
-            </button>
+              <button
+                onClick={cancelHandler}
+                className="newwh__button newwh__button--cancel"
+              >
+                Cancel
+              </button>
+              <button
+                onSubmit={handleSubmit}
+                className="newwh__button newwh__button--add"
+              >
+                + Add Warehouse
+              </button>
             </div>
           </div>
         </form>
