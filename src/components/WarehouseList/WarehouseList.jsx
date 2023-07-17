@@ -8,8 +8,9 @@ import axios from 'axios';
 import chevron from '../../assets/Icons/chevron_right-24px.svg';
 import trash from '../../assets/Icons/delete_outline-24px.svg';
 import edit from '../../assets/Icons/edit-24px.svg';
+import SortFilter from '../SortFilter/SortFilter';
 
-export default function WarehouseList({ setOpenModal }) {
+export default function WarehouseList({ setOpenModal, setWarehouse }) {
     const BASE_URL = "http://localhost:8080"; 
 
     const [warehouses, setWarehouses] = useState([]);
@@ -30,10 +31,11 @@ export default function WarehouseList({ setOpenModal }) {
       <div className='warehouses__header'>
         <h1 className='warehouses__title'>Warehouses</h1>
         <input type="text" id="searchbar" className='warehouses__searchbar' placeholder="Search..." />
-        <Link to="/add-new-warehouse">
+        <Link to="/add-new-warehouse" className='no_underline'>
           <button className='warehouses__button'> <h3>+ Add New Warehouse</h3></button>
         </Link>
       </div>
+      <SortFilter />
       {/* add in the single warehouse components here */}
       {warehouses.map(warehouse => (
         <div className='warehouse__item' key={warehouse.id}>
@@ -42,9 +44,9 @@ export default function WarehouseList({ setOpenModal }) {
               <div className='warehouse__left-name'>
                 <h4 className='warehouse__titles'>WAREHOUSE</h4>
                 <button className='warehouse__left-name-button'>
-                  <Link to={`/warehouse/${warehouse.id}`}>
+                  <Link to={`/warehouse/${warehouse.id}`} className='no_underline'>
                     <h3 className='warehouse__text-blue'>{warehouse.warehouse_name}</h3>
-                    <img src={chevron} alt="chevron arrow right" />
+                    <img className='grow' src={chevron} alt="chevron arrow right" />
                   </Link>
                 </button>
               </div>
@@ -67,14 +69,12 @@ export default function WarehouseList({ setOpenModal }) {
             </div>
           </div>
           <div className='warehouse__icons'>
-            <button id='delete__button' className='warehouse__icons-delete' onClick={() => { setOpenModal(true) }}>
-              <Link to={`/delete-warehouse/${warehouse.id}`}>
+            <button id='delete__button' className='warehouse__icons-delete' onClick={() => { setWarehouse(warehouse); setOpenModal(true) }}>
                 <img src={trash} alt="delete trash can" />
-              </Link>
             </button>
 
             <button id="edit__button" className="warehouse__icons-edit">
-              <Link to={{ pathname: `/edit-warehouse/${warehouse.id}`, state: { selectedWarehouse: warehouse } }}>
+              <Link to={{ pathname: `/edit-warehouse/${warehouse.id}`, state: { selectedWarehouse: warehouse } }} className='no_underline'>
                 <img src={edit} alt="edit pencil" />
               </Link>
             </button>

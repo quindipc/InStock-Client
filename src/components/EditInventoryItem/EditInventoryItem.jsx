@@ -1,10 +1,8 @@
 export default function EditInventoryItem() {
 
-    
-    return (
+  return (
       <>
-<h1>EditInventoryItem - Please populate</h1>
-      </>
-    );
-  }
-  
+    <h1>Put Inventory Items Here</h1>
+    </>
+      );
+}

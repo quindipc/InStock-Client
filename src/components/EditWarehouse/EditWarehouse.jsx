@@ -78,7 +78,7 @@ export default function EditWarehouse(selectedWarehouse) {
         <div className="editwh__header">
           <Link to="/" className="editwh__back">
             <img
-              className="editwh__arrowback"
+              className="editwh__arrowback grow"
               src={arrowback}
               alt="Arrow back icon"
             />
