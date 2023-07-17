@@ -10,7 +10,7 @@ import arrowback from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function EditWarehouse(selectedWarehouse) {
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
   const BASE_URL = "http://localhost:8080/api/warehouses";
 
   const initialFormData = {
@@ -28,7 +28,6 @@ export default function EditWarehouse(selectedWarehouse) {
   const [showSuccess, setSuccess] = useState(false);
   const [showError, setError] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
-
 
   useEffect(() => {
     if (location.state && location.state.selectedWarehouse) {
@@ -49,24 +48,13 @@ export default function EditWarehouse(selectedWarehouse) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const allFieldsFilled = Object.values(formData).every(
-      (value) => value !== "",
-    );
-    if (!allFieldsFilled) {
-      setError(true);
-      return;
-    } 
-
-    setError(false);
 
     axios
-      .post(`${BASE_URL}`, formData)
+      .put(`${BASE_URL}/${formData.id}`, formData) // Send update request with the warehouse ID
       .then(() => {
         setSuccess(true);
         setTimeout(() => {
           navigate("/");
-          setFormData(initialFormData);
-          setError(false);
           setSuccess(false);
         }, 3000);
       })
@@ -245,7 +233,7 @@ export default function EditWarehouse(selectedWarehouse) {
                 type="submit"
                 className="editwh__button editwh__button--add"
               >
-                + Add Warehouse
+              Save
               </button>
             </div>
           </div>
