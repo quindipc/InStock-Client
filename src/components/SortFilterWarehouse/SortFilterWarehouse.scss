@@ -14,7 +14,7 @@
     background-color: #f7f8f9;
     margin: 0rem;
     margin-top: -1rem;
-    margin-left: 0.5rem;
+    margin-left: 0rem;
     padding-left: 1rem;
     height: 2.5rem;
     
@@ -27,6 +27,7 @@
 
       color: #5c667e;
       width: 25%;
+      justify-content: left;
 
     }
   }
@@ -49,6 +50,8 @@
       align-items: center;
       color: #5c667e;
       width: 25%;
+      justify-content: left;
+      
        }
   }
   &__info {
