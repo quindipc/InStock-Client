@@ -30,7 +30,7 @@ export default function WarehouseList({ setOpenModal }) {
       <div className='warehouses__header'>
         <h1 className='warehouses__title'>Warehouses</h1>
         <input type="text" id="searchbar" className='warehouses__searchbar' placeholder="Search..." />
-        <Link to="/add-new-warehouse">
+        <Link to="/add-new-warehouse" className='no_underline'>
           <button className='warehouses__button'> <h3>+ Add New Warehouse</h3></button>
         </Link>
       </div>
@@ -42,9 +42,9 @@ export default function WarehouseList({ setOpenModal }) {
               <div className='warehouse__left-name'>
                 <h4 className='warehouse__titles'>WAREHOUSE</h4>
                 <button className='warehouse__left-name-button'>
-                  <Link to={`/warehouse/${warehouse.id}`}>
+                  <Link to={`/warehouse/${warehouse.id}`} className='no_underline'>
                     <h3 className='warehouse__text-blue'>{warehouse.warehouse_name}</h3>
-                    <img src={chevron} alt="chevron arrow right" />
+                    <img className='grow' src={chevron} alt="chevron arrow right" />
                   </Link>
                 </button>
               </div>
@@ -68,14 +68,14 @@ export default function WarehouseList({ setOpenModal }) {
           </div>
           <div className='warehouse__icons'>
             <button id='delete__button' className='warehouse__icons-delete' onClick={() => { setOpenModal(true) }}>
-              <Link to={`/delete-warehouse/`}>
-                <img src={trash} alt="delete trash can" />
+              <Link to={`/delete-warehouse/`} className='no_underline'>
+                <img className='grow' src={trash} alt="delete trash can" />
               </Link>
             </button>
 
             <button id='edit__button' className='warehouse__icons-edit'>
-              <Link to={`/edit-warehouse/${warehouse.id}`}>
-                <img src={edit} alt="edit pencil" />
+              <Link to={`/edit-warehouse/${warehouse.id}`} className='no_underline'>
+                <img className='grow' src={edit} alt="edit pencil" />
               </Link>
             </button>
           </div>

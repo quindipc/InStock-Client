@@ -1,5 +1,6 @@
 import "./AddNewWarehouse.scss";
 
+
 // Dependancies
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -85,7 +86,7 @@ export default function AddNewWarehouse() {
           {/* ADD NEW WAREHOUSE HEADER */}
           <Link to="/" className="newwh__back">
             <img
-              className="newwh__arrowback"
+              className="newwh__arrowback grow"
               src={arrowback}
               alt="Arrow back icon"
             />
