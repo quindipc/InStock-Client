@@ -37,6 +37,7 @@ export default function WarehouseDetails() {
       try {
         const response = await axios.get(`${BASE_URL}/warehouses/${id}/inventories`);
         setInventoryItems(response.data);
+        console.log(response.data);
       } catch (error) {
         console.log("Error fetching inventory items:", error);
       }
@@ -108,57 +109,60 @@ export default function WarehouseDetails() {
     <section className="whdetails__inventory">
       <div className="whdetails__inventory-container">
         {inventoryItems.map((item) => (
-          <div key={item.id} className="whdetails__inventory-group">
-            <hr className="whdetails__divider" />
+          <>
+                <hr className="whdetails__divider" />
+             <div key={item.id} className="whdetails__inventory-group">
             <div className="whdetails__inventory-tablesection">
               <div className="whdetails__inventory-divsection">
                 <div className="whdetails__inventory-section">
-                  <h3 className="whdetails__inventory-header">
+                  <h4 className="whdetails__inventory-subheader">
                     Inventory Item
-                  </h3>
+                  </h4>
                   <Link to={`/inventory-item/${item.id}`}>
-                    <button className="whdetails__inventory-row-name">
+                    <button className="whdetails__inventory-row-button">
                       {item.item_name}
-                      <img src={chevron_right} alt="Right Chevron" />
+                      <img  className="whdetails__inventory-row-chevron" src={chevron_right} alt="Right Chevron" />
                     </button>
                   </Link>
                 </div>
                 <div className="whdetails__inventory-section">
-                  <h3 className="whdetails__inventory-header">Category</h3>
-                  <p className="whdetails__inventory-row-category">
+                  <h4 className="whdetails__inventory-subheader">Category</h4>
+                  <p className="whdetails__inventory-row">
                     {item.category}
                   </p>
                 </div>
               </div>
               <div className="whdetails__inventory-divsection">
                 <div className="whdetails__inventory-section">
-                  <h3 className="whdetails__inventory-header">Status</h3>
-                  <p className="whdetails__inventory-row-status">
+                  <h4 className="whdetails__inventory-subheader">Status</h4>
+                  <p className="whdetails__inventory-row">
                     {item.status}
                   </p>
                 </div>
                 <div className="whdetails__inventory-section">
-                  <h3 className="whdetails__inventory-header">Quantity</h3>
-                  <p className="whdetails__inventory-row-qty">
-                    {item.total_quantity}
+                  <h4 className="whdetails__inventory-subheader">Quantity</h4>
+                  <p className="whdetails__inventory-row">
+                    {item.quantity}
                   </p>
                 </div>
               </div>
-              <div className="whdetails__inventory-divsection--actions">
+            </div>
+            <div className="whdetails__inventory-divsection--actions">
                 <div className="whdetails__inventory-section">
-                  <h3 className="whdetails__inventory-header">Actions</h3>
-
+                  <h4 className="whdetails__inventory-subheader--actions">Actions</h4>
+                <div className="whdetails__actions--icons">
                   <Link to={`/delete-inventory-item/${item.id}`}>
                     <img src={delete_icon} alt="Delete Icon" />
                   </Link>
 
                   <Link to={`/edit-inventory-item/${item.id}`}>
-                    <img src={edit_icon} alt="Edit Icon" />
+                    <img  src={edit_icon} alt="Edit Specif Inventory Icon" />
                   </Link>
+                 </div>
                 </div>
               </div>
-            </div>
           </div>
+          </>
         ))}
       </div>
     </section>
