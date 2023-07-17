@@ -126,6 +126,7 @@
         box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
         margin-top: 0rem;
         margin-bottom: 0rem;
+        
 
         @include tablet {
             flex-direction: row;
@@ -134,7 +135,7 @@
 
         @include desktop {
             flex-direction: row;
-
+            max-width: 80rem;
         }
 
     }
@@ -235,3 +236,24 @@
     }
 
 }
+
+.in-stock {
+    display: flex;
+    border-radius: 1.25rem;
+    background: rgba(21, 132, 99, 0.07);
+    color:  #158463;
+    width: 5rem;
+    justify-content: center;
+    
+  }
+  
+  .out-of-stock {
+  
+    display: flex;
+    border-radius: 1.25rem;
+  background: rgba(201, 69, 21, 0.07);
+  color: #C94515;
+  width: 6rem;
+  justify-content: center;
+  
+  }
