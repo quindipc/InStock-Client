@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import SortFilterWarehouse from "../../components/SortFilterWarehouse/SortFilterWarehouse"
 
 // Assets
 import arrowback from "../../assets/Icons/arrow_back-24px.svg";
@@ -12,6 +13,8 @@ import edit from "../../assets/Icons/edit-24px-white.svg";
 import delete_icon from "../../assets/Icons/delete_outline-24px.svg";
 import edit_icon from "../../assets/Icons/edit-24px.svg";
 import chevron_right from "../../assets/Icons/chevron_right-24px.svg";
+
+
 
 export default function WarehouseDetails() {
   const BASE_URL = "http://localhost:8080/api";
@@ -108,6 +111,7 @@ export default function WarehouseDetails() {
     {/* SELECTED WAREHOUSE INVENTORY LIST */}
     <section className="whdetails__inventory">
       <div className="whdetails__inventory-container">
+      <SortFilterWarehouse />
         {inventoryItems.map((item) => (
           <>
                 <hr className="whdetails__divider" />
