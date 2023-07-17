@@ -3,7 +3,7 @@ import x_button from "../../assets/Icons/close-24px.svg";
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-export default function DeleteWarehouse({ setOpenModal }) {
+export default function DeleteWarehouse({ setOpenModal}) {
 
     const BASE_URL = "http://localhost:8080"; 
 

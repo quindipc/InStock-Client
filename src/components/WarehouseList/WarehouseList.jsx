@@ -68,7 +68,7 @@ export default function WarehouseList({ setOpenModal }) {
           </div>
           <div className='warehouse__icons'>
             <button id='delete__button' className='warehouse__icons-delete' onClick={() => { setOpenModal(true) }}>
-              <Link to={`/delete-warehouse/${warehouse.id}`}>
+              <Link to={`/delete-warehouse/`}>
                 <img src={trash} alt="delete trash can" />
               </Link>
             </button>
