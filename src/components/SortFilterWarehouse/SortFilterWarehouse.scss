@@ -15,12 +15,13 @@
     margin: 0rem;
     margin-top: -1rem;
     margin-left: 0rem;
-    padding-left: 1rem;
+    padding-left: 0rem;
     height: 2.5rem;
+    width:100%;
     
   }
 
-  &__warehouse {
+  &__inventory {
     @include tablet {
       display: flex;
       align-items: center;
@@ -31,7 +32,7 @@
 
     }
   }
-  &__address {
+  &__category {
     @include tablet {
       display: flex;
       align-items: center;
@@ -44,17 +45,17 @@
       }
     }
   }
-  &__name {
+  &__status {
     @include tablet {
       display: flex;
       align-items: center;
       color: #5c667e;
-      width: 25%;
+      width: 20%;
       justify-content: left;
       
        }
   }
-  &__info {
+  &__quantity {
 
     @include tablet {
       display: flex;
