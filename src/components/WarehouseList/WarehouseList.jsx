@@ -8,6 +8,7 @@ import axios from 'axios';
 import chevron from '../../assets/Icons/chevron_right-24px.svg';
 import trash from '../../assets/Icons/delete_outline-24px.svg';
 import edit from '../../assets/Icons/edit-24px.svg';
+import SortFilter from '../SortFilter/SortFilter';
 
 export default function WarehouseList({ setOpenModal }) {
     const BASE_URL = "http://localhost:8080"; 
@@ -34,6 +35,7 @@ export default function WarehouseList({ setOpenModal }) {
           <button className='warehouses__button'> <h3>+ Add New Warehouse</h3></button>
         </Link>
       </div>
+      <SortFilter />
       {/* add in the single warehouse components here */}
       {warehouses.map(warehouse => (
         <div className='warehouse__item' key={warehouse.id}>
