@@ -139,7 +139,7 @@ export default function WarehouseDetails() {
               <div className="whdetails__inventory-divsection">
                 <div className="whdetails__inventory-section">
                   <h4 className="whdetails__inventory-subheader">Status</h4>
-                  <p className="whdetails__inventory-row">
+                  <p className={item.status === 'In Stock' ? 'whdetails__inventory-row in-stock' : 'whdetails__inventory-row out-of-stock'}>
                     {item.status}
                   </p>
                 </div>
@@ -160,7 +160,7 @@ export default function WarehouseDetails() {
                   </Link>
 
                   <Link to={`/edit-inventory-item/${item.id}`}>
-                    <img  src={edit_icon} alt="Edit Specif Inventory Icon" />
+                    <img  src={edit_icon} alt="Edit Specific Inventory Icon" />
                   </Link>
                  </div>
                 </div>

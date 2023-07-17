@@ -85,7 +85,7 @@ export default function InventoryItem() {
             <div className="inventoryItemInfo__quantitycontainer">
               <div className="inventoryItemInfo__quantitycontainer--status">
                 <h4 className="inventoryItemInfo__rightcontainer--subheader">STATUS:</h4>
-                <p>{inventoryDetail.status}</p>
+                <p className={inventoryDetail.status === 'In Stock' ? 'in-stock' : 'out-of-stock'}> {inventoryDetail.status} </p>
               </div>
               <div className="inventoryItemInfo__quantitycontainer--quantity">
                 <h4 className="inventoryItemInfo__rightcontainer--subheader">QUANTITY:</h4>
