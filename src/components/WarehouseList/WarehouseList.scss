@@ -120,7 +120,6 @@
     border-bottom: 1px solid $cloud;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     @include tablet{
       display: flex;
       flex-direction: row;
@@ -133,27 +132,35 @@
   &__titles{
     margin-bottom: 0.25rem;
     color: $slate;
+    @include tablet{
+      display: none;
+    }
   }
   &__text{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    justify-content: left;
+    
     &-blue{
       color: $indigo;
+    min-width: 11rem;
+
     }
   }
   &__left{
-    margin-right: 2.81rem;
+    margin-right: 1.81rem;
     @include tablet{
       display: flex;
     }
     &-name{
       margin-bottom: 1rem;
+      justify-content: left;
       @include tablet{
-        margin-right: 2.13rem;
+        margin-right: 1.13rem;
       }
       @include desktop{
-        margin-right: 8.12rem;
+        margin-left: 3rem;
       }
       &-button{
         display: flex;
@@ -161,8 +168,11 @@
     }
     &-address{
       margin-bottom: 1rem;
+      min-width: 7rem;
+      justify-content: left;
+
       @include desktop{
-        margin-right: 5.12rem;
+        // margin-right: 4.12rem;
       }
     }
   }
@@ -172,17 +182,21 @@
     }
     &-contact{
       margin-bottom: 1rem;
+      min-width: 7rem;
+
       @include tablet{
-        margin-right: 2.88rem;
+        // margin-right: 1.88rem;
+        justify-content: left;
       }
       @include desktop{
-        margin-right: 6.19rem;
+        // margin-right: 5.19rem;
       }
     }
     &-info{
       margin-bottom: 1rem;
+      min-width: 12rem;
       @include desktop{
-        margin-right: 6.25rem;
+        // margin-right: 5.25rem;
       }
     }
   }
@@ -190,7 +204,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 2rem;
     &-delete{
       margin-right: 1rem;
     }

@@ -29,7 +29,6 @@ export default function App() {
         <Route path="/warehouses" element={<WarehousePage />} />
         <Route path="/add-new-warehouse" element={<AddNewWarehousePage />} />
         <Route path="/warehouse/:id" element={<WarehouseDetailsPage />} />
-        <Route path="/delete-warehouse" element={<DeleteWarehousePage />} />
         <Route path="/edit-warehouse/:id" element={<EditWarehousePage />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/inventory/:id" element={<InventoryItemPage />} />

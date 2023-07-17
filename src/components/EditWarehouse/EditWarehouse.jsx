@@ -86,7 +86,7 @@ export default function EditWarehouse() {
           {/* ADD NEW WAREHOUSE HEADER */}
           <Link to="/" className="editwh__back">
             <img
-              className="editwh__arrowback"
+              className="editwh__arrowback grow"
               src={arrowback}
               alt="Arrow back icon"
             />
