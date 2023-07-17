@@ -10,12 +10,13 @@ import DeleteWarehouse from "../../components/DeleteWarehouse/DeleteWarehouse";
 export default function WarehousePage () {
 
     const [openModal, setOpenModal] = useState(false)
+    const [warehouse, setWarehouse] = useState(null)
 
     return (
         <div>
             <Header />
-            <WarehouseList setOpenModal={setOpenModal}/>
-            {openModal && <DeleteWarehouse setOpenModal={setOpenModal}/>}
+            <WarehouseList setOpenModal={setOpenModal} setWarehouse={setWarehouse}/>
+            {openModal && <DeleteWarehouse warehouse={warehouse} setOpenModal={setOpenModal}/>}
             <Footer />
         </div>
     )
