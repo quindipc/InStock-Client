@@ -1,5 +1,6 @@
 import './Header.scss'
 
+
 // Dependnancies
 import { Link } from 'react-router-dom';
 
@@ -21,13 +22,13 @@ export default function Header() {
       </div>
       <div className='header__links'>
         <div className='header__link-container header__link-container--clicked'>
-          <Link to="/warehouses" element={<WarehousePage />}  className='header__link header__link--clicked'>
+          <Link to="/warehouses" element={<WarehousePage />}  className='header__link header__link--clicked no_underline'>
           Warehouses
         </Link>
   
         </div>
         <div className='header__link-container'>
-        <Link to="/inventory" element={<InventoryPage />} className='header__link header__link--clicked'>
+        <Link to="/inventory" element={<InventoryPage />} className='header__link header__link--clicked no_underline'>
           Inventory
         </Link>
         </div>

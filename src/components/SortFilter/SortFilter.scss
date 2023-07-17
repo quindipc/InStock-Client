@@ -5,7 +5,6 @@
 
 .filter {
   display: none;
-  background-color: red;
 
   @include tablet {
     display: flex;
