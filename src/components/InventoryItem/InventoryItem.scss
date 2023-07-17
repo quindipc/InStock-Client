@@ -1,0 +1,237 @@
+@use "../../styles/partials/font" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.inventoryItem {
+    //TODO: need to include font styles for everything
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width: 21.4375rem;
+        width: 90%;
+        background-color: $white;
+        border-radius: 4px; // may need to be changed
+        box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+        margin-top: -4.875rem;
+        margin-bottom: 0rem; //TODO: change footer styles and add margin/padding
+
+        @include tablet {
+            min-width: 44rem;
+        }
+
+        @include desktop {
+            max-width: 80rem;
+        }
+
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5rem 1rem;
+    }
+
+    &__editicon {
+
+        
+        &--framelink {
+            display: flex;
+            margin-left: auto;
+        }
+
+        &--frame {
+            display: flex;
+            width: 2.25rem;
+            height: 2.25rem;
+            padding: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            border-radius: 1.25rem;
+            background: $indigo;
+            
+
+        }
+
+        &--picture {
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+
+
+        }
+    }
+
+    &__divider {
+
+        @include horizontal-divider;
+
+
+        &--vertical {
+
+            display: none;
+
+            @include tablet {
+
+                height: 0.0625rem; 
+                display: flex;
+                @include vertical-divider;
+
+            }
+
+            @include desktop {
+                height: 0.0625rem;
+
+                display: flex;
+
+                @include vertical-divider;
+
+            }
+        }
+
+    }
+
+
+}
+
+.inventoryItemInfo {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    &__mastercontainer {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        background-color: $white;
+        border-radius: 4px; // may need to be changed
+        box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+
+        @include tablet {
+            flex-direction: row;
+
+        }
+
+        @include desktop {
+            flex-direction: row;
+
+        }
+
+    }
+
+    &__leftcontainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        background-color: $white;
+        border-radius: 4px; // may need to be changed
+        box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+
+        padding-left: 2.5rem;
+        padding-right: 1.5rem;
+
+        @include tablet {
+            width: 50%;
+
+        }
+
+        @include desktop {
+            width: 50%;
+
+        }
+
+        &--subheader {
+            padding-top: 1.5rem;
+            color: $slate;
+        }
+
+    }
+
+    &__rightcontainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        background-color: $white;
+        border-radius: 4px; // may need to be changed
+        box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+
+        padding-left: 2.5rem;
+        padding-bottom: 1.5rem;
+
+        @include tablet {
+            width: 50%;
+
+        }
+
+        @include desktop {
+            width: 50%;
+
+        }
+
+        &--subheader {
+            padding-top: 1.5rem;
+            color: $slate;
+        }
+
+    }
+
+
+}
+
+
+
+.inventoryItemInfo__quantitycontainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+
+    @include tablet {
+        flex-direction: column;
+
+    }
+
+    @include desktop {
+        flex-direction: column;
+
+    }
+
+    &--status {
+
+        width: 50%;
+
+    }
+
+    &--quantity {
+        width: 50%;
+
+
+    }
+
+}
