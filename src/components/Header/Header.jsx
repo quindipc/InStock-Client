@@ -1,35 +1,43 @@
-import './Header.scss'
+import "./Header.scss";
 
 // Dependnancies
-import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 // Assets
-import logo from '../../assets/Logo/InStock-Logo.svg'
-
-// Pages
-import WarehousePage from '../../pages/WarehousePage/WarehousePage';
-import InventoryPage from '../../pages/InventoryPage/InventoryPage';
+import logo from "../../assets/Logo/InStock-Logo.svg";
 
 export default function Header() {
   return (
-    <header className='header'>
-      <div className='header__logo-container'>
-
-        <Link to="/" element={<WarehousePage/>}>
-        <img src={logo} alt="Instock Logo"/>
-        </Link>
+    <header className="header">
+      <div className="header__logo-container">
+        <NavLink
+          to="/"
+          activeClassName="header__link--active"
+          className="no_underline"
+        >
+          <img src={logo} alt="Instock Logo" />
+        </NavLink>
       </div>
-      <div className='header__links'>
-        <div className='header__link-container header__link-container--clicked'>
-          <Link to="/warehouses" element={<WarehousePage />}  className='header__link header__link--clicked no_underline'>
-          Warehouses
-        </Link>
-  
+      <div className="header__links">
+        <div className="header__link-container">
+          <NavLink
+            exact
+            to="/warehouses"
+            activeClassName="header__link--active"
+            className="header__link no_underline"
+          >
+            Warehouses
+          </NavLink>
         </div>
-        <div className='header__link-container'>
-        <Link to="/inventory" element={<InventoryPage />} className='header__link header__link--clicked no_underline'>
-          Inventory
-        </Link>
+        <div className="header__link-container">
+          <NavLink
+            exact
+            to="/inventory"
+            activeClassName="header__link--active"
+            className="header__link no_underline"
+          >
+            Inventory
+          </NavLink>
         </div>
       </div>
     </header>
