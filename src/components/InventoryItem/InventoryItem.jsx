@@ -1,8 +1,8 @@
 import "./InventoryItem.scss";
 
 // Dependancies
-import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect  } from "react";
 import axios from "axios";
 
 // Assets
@@ -12,7 +12,8 @@ import editiconwhite from "../../assets/Icons/edit-24px-white.svg";
 
 export default function InventoryItem() {
 
-  const INVENTORY_ID = 1
+  const { id } = useParams();
+  const INVENTORY_ID = id;
 
   const navigate = useNavigate();
   const BASE_URL = "http://localhost:8080/";
@@ -20,7 +21,7 @@ export default function InventoryItem() {
   });
 
 
-  async function fetchInventory() {
+  async function fetchInventory(id) {
 
     try {
 
