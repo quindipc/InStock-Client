@@ -7,6 +7,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import SortFilterWarehouse from "../SortFilterWarehouse/SortFilterWarehouse";
 
+import DeleteInventory from "../DeleteInventory/DeleteInventory";
+
 export default function InventoryList({ setOpenModal }) {
   let [inventoryList, setInventoryList] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
