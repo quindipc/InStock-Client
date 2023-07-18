@@ -176,9 +176,11 @@
   &-subheader {
     color: $slate;
     text-transform: uppercase;
+    @include h2__M-subheader;
 
     @include tablet {
       display: none;
+      @include h2__DT-subheader;
     }
 
     &--actions {

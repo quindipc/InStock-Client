@@ -25,6 +25,11 @@
   &__title {
     @include flex-row-center;
     padding: 1.5rem 1rem;
+    @include h2__M-subheader;
+
+    @include tablet {
+      @include h2__DT-subheader;
+    }
   }
 
   &__container-form {
@@ -37,6 +42,11 @@
 
   &__subtitle {
     padding: 1.5rem 0.5rem;
+    @include h2__M-subheader;
+
+    @include tablet {
+      @include h2__DT-subheader;
+    }
   }
 
   &__divider {
@@ -62,7 +72,12 @@
   }
 
   &__subheader {
-    padding-bottom: 4px;
+    padding-bottom: 0.25rem;
+    @include h3__M-label;
+
+    @include tablet {
+      @include h3__DT-label;
+    }
   }
 
   &__input {
@@ -92,10 +107,12 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    @include h3__M-label;
     @include tablet {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+      @include h3__DT-label;
     }
   }
 

@@ -10,7 +10,7 @@
   align-items: center;
 
   &__container {
-   @include container;
+    @include container;
   }
 
   &__container-input {
@@ -18,13 +18,18 @@
   }
 
   &__header {
-   @include flex-row-center;
+    @include flex-row-center;
     padding: 1.5rem;
   }
 
   &__title {
-  @include flex-row-center;
+    @include flex-row-center;
     padding: 1.5rem 1rem;
+    @include h2__M-subheader;
+
+    @include tablet {
+      @include h2__DT-subheader;
+    }
   }
 
   &__container-form {
@@ -37,6 +42,11 @@
 
   &__subtitle {
     padding: 1.5rem 0.5rem;
+    @include h2__M-subheader;
+
+    @include tablet {
+      @include h2__DT-subheader;
+    }
   }
 
   &__divider {
@@ -62,11 +72,16 @@
   }
 
   &__subheader {
-    padding-bottom: 4px;
+    padding-bottom: 0.25rem;
+    @include h3__M-label;
+
+    @include tablet {
+      @include h3__DT-label;
+    }
   }
 
   &__input {
- @include input;
+    @include input;
   }
 
   &__contactdetails {
@@ -76,7 +91,7 @@
   }
 
   &__action {
- @include flex-row-center;
+    @include flex-row-center;
     justify-content: center;
     padding: 1rem;
     background-color: $light-gray;
@@ -92,10 +107,12 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    @include h3__M-label;
     @include tablet {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+      @include h3__DT-label;
     }
   }
 
