@@ -54,7 +54,7 @@ export default function InventoryList({ setOpenModal }) {
                 />
               </button>
             </div>
-            <div className="warehouse__left-address">
+            <div className="warehouse__left-category">
               <h4 className="warehouse__titles">CATEGORY</h4>
               <p>{item.category}</p>
             </div>
@@ -67,10 +67,6 @@ export default function InventoryList({ setOpenModal }) {
             <div className="warehouse__right-info">
               <h4 className="warehouse__titles">QTY</h4>
               <p>{item.quantity}</p>
-            </div>
-            <div className="warehouse__right-info">
-              <h4 className="warehouse__titles">WAREHOUSE</h4>
-              <p>{item.warehouse_name}</p>
             </div>
           </div>
         </div>
