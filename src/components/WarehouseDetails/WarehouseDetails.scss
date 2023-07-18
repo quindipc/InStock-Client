@@ -5,13 +5,11 @@
 
 //// WAREHOUSE DETAILS STYLES ////
 .whdetails {
-  //TODO: need to include font styles for everything
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  //TODO: Card container may need to be changed to global styles
   &__container {
     display: flex;
     flex-direction: column;
@@ -19,7 +17,7 @@
     width: 90%;
     padding: 1rem;
     background-color: $white;
-    border-radius: 4px; // may need to be changed
+    border-radius: 4px;
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
     margin-top: -4.875rem;
 
@@ -72,7 +70,6 @@
     justify-content: center;
     align-items: center;
 
-
     @include tablet {
       display: none;
     }
@@ -105,7 +102,6 @@
   }
 
   &__subheader {
-    //TODO: need to include mobile font styles
     color: $slate;
     text-transform: uppercase;
   }
@@ -132,26 +128,22 @@
       }
     }
   }
-
 }
 
-////// WAREHOUSE INVENTORY LIST STYLES -- TONY WILL EDIT LATER////
+////// WAREHOUSE INVENTORY LIST STYLES ////
 .whdetails__inventory {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-
   &-container {
-
     display: flex;
     flex-direction: column;
     width: 90%;
     padding: 1rem;
     background-color: $white;
-    border-radius: 4px; // may need to be changed
+    border-radius: 4px;
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
     margin-top: 0rem;
   }
@@ -162,10 +154,8 @@
     height: 5rem;
 
     @include tablet {
-
       width: 100%;
     }
-
   }
 
   &-group {
@@ -174,16 +164,11 @@
     flex-direction: column;
 
     @include tablet {
-
       flex-direction: row;
-
     }
-
   }
 
-
   &-subheader {
-
     color: $slate;
     text-transform: uppercase;
 
@@ -192,25 +177,19 @@
     }
 
     &--actions {
-
       display: none;
-
       @include tablet {
-
         display: flex;
         color: $slate;
         text-transform: uppercase;
         display: none;
-
       }
     }
   }
 
-
   &-tablesection {
     display: flex;
     flex-direction: row;
-
     width: 100%;
   }
 
@@ -221,20 +200,14 @@
       display: flex;
       flex-direction: row;
       width: 100%;
-
     }
 
     &--actions {
-
       width: 100%;
-
       @include tablet {
         width: 10%;
       }
-
     }
-
-
   }
 
   &-row {
@@ -242,55 +215,34 @@
     min-height: 2rem;
     align-items: center;
 
-
     &-button {
-
       text-decoration: none;
-
-
-
     }
 
     &-chevron {
-
       width: 1.25rem;
       height: 1.25rem;
-
-
     }
-
-
   }
-
-
-
-
 }
-
-
 
 .whdetails__actions--icons {
   display: flex;
   justify-content: space-between;
-
 }
 
 .in-stock {
-
   border-radius: 1.25rem;
   background: rgba(21, 132, 99, 0.07);
-  color:  #158463;
+  color: #158463;
   width: 5rem;
   justify-content: center;
-  
 }
 
 .out-of-stock {
-
   border-radius: 1.25rem;
-background: rgba(201, 69, 21, 0.07);
-color: #C94515;
-width: 6rem;
-justify-content: center;
-
+  background: rgba(201, 69, 21, 0.07);
+  color: #c94515;
+  width: 6rem;
+  justify-content: center;
 }
