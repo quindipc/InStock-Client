@@ -22,7 +22,7 @@ export default function InventoryList() {
                         <div className='warehouse__left-name'> 
                             <h4 className='warehouse__titles'>INVENTORY ITEM</h4>
                             <button className='warehouse__left-name-button'>
-                                <h3 className='warehouse__text-blue'>{item.item_name}</h3>
+                                <Link to={`/inventory/${item.id}`}><h3 className='warehouse__text-blue'>{item.item_name}</h3></Link>
                                 <img src={chevron} alt="chevron arrow right" />
                             </button>
                         </div>
