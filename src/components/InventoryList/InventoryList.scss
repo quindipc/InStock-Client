@@ -1,0 +1,218 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles//partials/font" as *;
+
+
+
+.warehouses {
+  background-color: $white;
+  margin-top: -4.875rem;
+  width: 90%;
+  padding: 1rem;
+  border-radius: 0.1875rem;
+  margin-left: 2rem;
+
+  @include tablet {
+    width: 90%;
+    margin: auto;
+    margin-top: -5.875rem;
+    padding-right: 2.5rem;
+  }
+  @include desktop {
+    margin-top: -5.875rem;
+    width: 80%;
+  }
+
+  &__header {
+    width: 100%;
+    border-bottom: 1px solid $cloud;
+    margin: 1rem;
+    padding-right: 2rem;
+    @include tablet {
+      width: 97%;
+      padding-right: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    @include desktop {
+      width: 100%;
+      padding-top: 0rem;
+    }
+  }
+  &__title {
+    width: 100%;
+    padding: 0rem 10.56rem 0rem 1.5rem;
+    @include tablet {
+      padding: 2rem 6.25rem 0rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @include desktop {
+      padding: 0rem 19.44rem 0rem 1.5rem;
+    }
+  }
+  &__searchbar {
+    background: $white;
+    background-image: url("../../assets/Icons/search-24px.svg");
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 95% 50%;
+    width: 90%;
+    height: 2.25rem;
+    margin: 1rem 1.5rem 0rem 1.5rem;
+    padding-left: 10px;
+    border-radius: 1.25rem;
+    border: 1px solid $cloud;
+    @include tablet {
+      width: 90%;
+      height: 2.375rem;
+      padding: 0.5rem 7.44rem 0.5rem 1rem;
+      margin-bottom: 1rem;
+      margin-left: 0rem;
+    }
+    @include desktop {
+      width: 90%;
+      height: 2.375rem;
+      padding: 0.5rem 7.44rem 0.5rem 1rem;
+      margin-bottom: 1rem;
+      margin-left: 0rem;
+    }
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    background-color: $indigo;
+    color: $white;
+    display: inline-flex;
+    padding: 0.5rem;
+    margin: 1rem 1.5rem 2rem 1.5rem;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 1.25rem;
+    width: 90%;
+
+    @include tablet {
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      height: 2.375rem;
+      padding: 0.5rem 0rem 0.5rem 1rem;
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+      margin-left: 0rem;
+    }
+    @include desktop {
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      margin-right: 1rem;
+    }
+  }
+}
+
+
+/* add in the single warehouse componets styling here  */
+
+.warehouse {
+  &__item {
+    padding: 2rem;
+    width: 100%;
+    border-bottom: 1px solid $cloud;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
+    @include desktop {
+      padding: 2.5rem;
+    }
+  }
+  &__titles {
+    margin-bottom: 0.25rem;
+    color: $slate;
+    @include tablet {
+      display: none;
+    }
+  }
+  &__text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: left;
+    @include Mp__body-large;
+
+    @include tablet {
+      @include p__body-large;
+    }
+
+    &-blue {
+      color: $indigo;
+      min-width: 11rem;
+    }
+  }
+  &__left {
+    margin-right: 1.81rem;
+    @include tablet {
+      display: flex;
+    }
+    &-name {
+      margin-bottom: 1rem;
+      justify-content: left;
+      @include tablet {
+        margin-right: 1.13rem;
+      }
+      @include desktop {
+        margin-left: 3rem;
+      }
+      &-button {
+        display: flex;
+      }
+    }
+    &-address {
+      margin-bottom: 1rem;
+      min-width: 7rem;
+      justify-content: left;
+
+      @include desktop {
+        // margin-right: 4.12rem;
+      }
+    }
+  }
+  &__right {
+    @include tablet {
+      display: flex;
+    }
+    &-contact {
+      margin-bottom: 1rem;
+      min-width: 7rem;
+
+      @include tablet {
+        // margin-right: 1.88rem;
+        justify-content: left;
+      }
+      @include desktop {
+        // margin-right: 5.19rem;
+      }
+    }
+    &-info {
+      margin-bottom: 1rem;
+      min-width: 12rem;
+      @include desktop {
+        // margin-right: 5.25rem;
+      }
+    }
+  }
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &-delete {
+      margin-right: 1rem;
+    }
+  }
+}
+button {
+  all: unset;
+  cursor: pointer;
+}

@@ -9,13 +9,13 @@ import DeleteInventory from "../../components/DeleteInventory/DeleteInventory";
 
 export default function InventoryPage() {
   const [openModal, setOpenModal] = useState(false);
-  const [inventory, setInventory] = useState(null);
+  const [inventoryList, setInventoryList] = useState(null);
   return (
     <>
       <Header />
-      <InventoryList setOpenModal={setOpenModal} setInventory={setInventory}/>
+      <InventoryList setOpenModal={setOpenModal} setInventoryList={setInventoryList}/>
       {openModal && (
-        <DeleteInventory inventory={inventory} setOpenModal={setOpenModal} />
+        <DeleteInventory inventoryList={inventoryList} setOpenModal={setOpenModal} />
       )}
       <Footer />
     </>
