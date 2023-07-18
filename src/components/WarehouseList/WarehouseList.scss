@@ -27,6 +27,7 @@
     border-bottom: 1px solid $cloud;
     margin: 1rem;
     padding-right: 2rem;
+
     @include tablet {
       width: 97%;
       padding-right: 1rem;
@@ -41,9 +42,12 @@
   &__title {
     width: 100%;
     padding: 0rem 10.56rem 0rem 1.5rem;
+    @include h1__M-header;
+
     @include tablet {
       padding: 2rem 6.25rem 0rem 1.5rem;
       margin-bottom: 2rem;
+      @include h1__DT-header;
     }
     @include desktop {
       padding: 0rem 19.44rem 0rem 1.5rem;
@@ -61,12 +65,15 @@
     padding-left: 10px;
     border-radius: 1.25rem;
     border: 1px solid $cloud;
+    @include h3__M-label;
+
     @include tablet {
       width: 90%;
       height: 2.375rem;
       padding: 0.5rem 7.44rem 0.5rem 1rem;
       margin-bottom: 1rem;
       margin-left: 0rem;
+      @include h3__DT-label;
     }
     @include desktop {
       width: 90%;
@@ -88,6 +95,7 @@
     gap: 0.625rem;
     border-radius: 1.25rem;
     width: 90%;
+    @include h3__M-label;
 
     @include tablet {
       display: flex;
@@ -98,6 +106,7 @@
       margin-bottom: 1rem;
       margin-right: 1rem;
       margin-left: 0rem;
+      @include h3__DT-label;
     }
     @include desktop {
       width: 90%;
@@ -108,104 +117,106 @@
   }
 }
 
-/* add in the single warehouse componets styling here  */
-.warehouse{
+.warehouse {
   &__item {
     padding: 2rem;
     width: 100%;
     border-bottom: 1px solid $cloud;
     display: flex;
     flex-direction: column;
-    @include tablet{
+    @include tablet {
       display: flex;
       flex-direction: row;
-
     }
-    @include desktop{
+    @include desktop {
       padding: 2.5rem;
     }
   }
-  &__titles{
+  &__titles {
     margin-bottom: 0.25rem;
     color: $slate;
-    @include tablet{
+    @include tablet {
       display: none;
     }
   }
-  &__text{
+  &__text {
     display: flex;
     flex-direction: row;
     justify-content: center;
     justify-content: left;
-    
-    &-blue{
-      color: $indigo;
-    min-width: 11rem;
+    @include Mp__body-large;
 
+    @include tablet {
+      @include p__body-large;
+    }
+
+    &-blue {
+      color: $indigo;
+      min-width: 11rem;
     }
   }
-  &__left{
+  &__left {
     margin-right: 1.81rem;
-    @include tablet{
+    @include tablet {
       display: flex;
     }
-    &-name{
+    &-name {
       margin-bottom: 1rem;
       justify-content: left;
-      @include tablet{
+      @include tablet {
         margin-right: 1.13rem;
       }
-      @include desktop{
+      @include desktop {
         margin-left: 3rem;
       }
-      &-button{
+      &-button {
         display: flex;
       }
     }
-    &-address{
+    &-address {
       margin-bottom: 1rem;
       min-width: 7rem;
       justify-content: left;
 
-      @include desktop{
+      @include desktop {
         // margin-right: 4.12rem;
       }
     }
   }
-  &__right{
-    @include tablet{
+  &__right {
+    @include tablet {
       display: flex;
     }
-    &-contact{
+    &-contact {
       margin-bottom: 1rem;
       min-width: 7rem;
 
-      @include tablet{
+      @include tablet {
         // margin-right: 1.88rem;
         justify-content: left;
       }
-      @include desktop{
+      @include desktop {
         // margin-right: 5.19rem;
       }
     }
-    &-info{
+    &-info {
       margin-bottom: 1rem;
       min-width: 12rem;
-      @include desktop{
+      @include desktop {
         // margin-right: 5.25rem;
       }
     }
   }
-  &__icons{
+  &__icons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    &-delete{
+    &-delete {
       margin-right: 1rem;
     }
   }
 }
-button{
+button {
   all: unset;
   cursor: pointer;
 }

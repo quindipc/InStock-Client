@@ -11,19 +11,7 @@
   align-items: center;
 
   &__container {
-    display: flex;
-    flex-direction: column;
-    width: 21.4375rem;
-    width: 90%;
-    padding: 1rem;
-    background-color: $white;
-    border-radius: 4px;
-    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
-    margin-top: -4.875rem;
-
-    @include tablet {
-      min-width: 44rem;
-    }
+    @include container;
   }
 
   &__container-title {
@@ -35,12 +23,16 @@
 
   &__name {
     padding: 0 0.5rem;
+    @include h1__M-header;
+    @include tablet {
+      @include h1__DT-header;
+    }
   }
 
   &__edit {
+    @include h3__M-label;
     display: none;
 
-    // TODO: The edit icon too close to the left
     @include tablet {
       display: flex;
       background-image: url(../../assets/Icons/edit-24px-white.svg);
@@ -55,6 +47,7 @@
       box-shadow: none;
       height: 2.5rem;
       margin-left: auto;
+      @include h3__DT-label;
     }
   }
 
@@ -63,7 +56,6 @@
     margin-left: auto;
     background-color: $indigo;
     border-radius: 50%;
-
     width: 2.25rem;
     height: 2.25rem;
     padding: 0.5rem;
@@ -104,6 +96,19 @@
   &__subheader {
     color: $slate;
     text-transform: uppercase;
+    @include h3__M-label;
+
+    @include tablet {
+      @include h3__DT-label;
+    }
+  }
+
+  &__details {
+    @include Mp__body-large;
+
+    @include tablet {
+      @include p__body-large;
+    }
   }
 
   &__container-contact {
@@ -171,9 +176,11 @@
   &-subheader {
     color: $slate;
     text-transform: uppercase;
+    @include h2__M-subheader;
 
     @include tablet {
       display: none;
+      @include h2__DT-subheader;
     }
 
     &--actions {
