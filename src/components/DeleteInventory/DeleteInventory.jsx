@@ -7,16 +7,16 @@ export default function DeleteInventory({setOpenModal}) {
     const BASE_URL = "http://localhost:8080/api/inventories";
 
 
-    // const handleDelete = () => {
-    //     axios.delete(`${BASE_URL}/${inventoryList.id}`)
-    //     .then(()=> {
-    //         console.log('successfully deleted Inventory Item');
-    //         setOpenModal(false);
-    //     })
-    //     .catch((error)=> {
-    //         console.error("Error deleting Inventory Item:", error);
-    //     });
-    // };
+    const handleDelete = () => {
+        axios.delete(`${BASE_URL}/${inventoryList.id}`)
+        .then(()=> {
+            console.log('successfully deleted Inventory Item');
+            setOpenModal(false);
+        })
+        .catch((error)=> {
+            console.error("Error deleting Inventory Item:", error);
+        });
+    };
 
     return(
         <div className='delete__container' id='overlay'>
@@ -26,7 +26,7 @@ export default function DeleteInventory({setOpenModal}) {
                 <p className='delete__subtext'>Please confirm that you’d like to delete the from the Inventory List. You won’t be able to undo this action.</p>
                 <div className='delete__buttons'>
                     <button className='delete__buttons-cancel' onClick={()=> setOpenModal(false)}> <h3>Cancel</h3></button>
-                    <button className='delete__buttons-delete' type='submit'> <h3>Delete</h3></button>
+                    <button className='delete__buttons-delete' onClick={handleDelete}> <h3>Delete</h3></button>
                 </div>
             </div>
         </div>
