@@ -8,12 +8,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-//   padding: $padding-headlines-mobile;
   padding-bottom: 1rem;
   background-color: $white;
+  @include h1__M-header;
 
   @include tablet {
     padding-bottom: 1.5rem;
+    @include h1__DT-header;
   }
 
   &__back {

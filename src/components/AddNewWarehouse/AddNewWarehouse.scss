@@ -66,26 +66,7 @@
   }
 
   &__input {
-    height: 2.25rem;
-    width: 100%;
-    padding: 0 1rem;
-    border: 1px solid $cloud;
-    border-radius: 1.25rem;
-    background-color: $white;
-
-    @include tablet {
-      height: 2.375rem;
-    }
-
-    &:focus {
-      outline: none;
-      border: 2px solid $indigo;
-    }
-
-    &--error {
-      outline: none;
-      border: 1px solid $red;
-    }
+ @include input;
   }
 
   &__contactdetails {

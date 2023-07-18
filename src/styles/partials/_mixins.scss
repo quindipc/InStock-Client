@@ -18,7 +18,7 @@
   }
 }
 
-// Font styles -- need to add header font styles
+// Font styles 
 
 // Desktop and tablet styling
 @mixin h1__DT-header {
@@ -62,7 +62,7 @@
   font-family: "Titillium Web", sans-serif;
   font-weight: 600;
   font-size: 0.813rem;
-  line-height: 1.25;
+  line-height: 1.25rem;
 }
 @mixin h4__DT-tableheader {
   font-family: "Titillium Web", sans-serif;
@@ -125,6 +125,8 @@
   margin-right: auto;
 }
 
+
+// Container styles
 @mixin container {
   display: flex;
   flex-direction: column;
@@ -172,12 +174,14 @@
   }
 }
 
+// flex styles
 @mixin flex-row-center {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
+// input styles
 @mixin input {
   height: 2.25rem;
   width: 100%;

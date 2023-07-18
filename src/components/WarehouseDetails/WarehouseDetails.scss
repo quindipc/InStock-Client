@@ -23,12 +23,16 @@
 
   &__name {
     padding: 0 0.5rem;
+    @include h1__M-header;
+    @include tablet {
+      @include h1__DT-header;
+    }
   }
 
   &__edit {
+    @include h3__M-label;
     display: none;
 
-    // TODO: The edit icon too close to the left
     @include tablet {
       display: flex;
       background-image: url(../../assets/Icons/edit-24px-white.svg);
@@ -43,6 +47,7 @@
       box-shadow: none;
       height: 2.5rem;
       margin-left: auto;
+      @include h3__DT-label;
     }
   }
 
@@ -51,7 +56,6 @@
     margin-left: auto;
     background-color: $indigo;
     border-radius: 50%;
-
     width: 2.25rem;
     height: 2.25rem;
     padding: 0.5rem;
@@ -92,6 +96,19 @@
   &__subheader {
     color: $slate;
     text-transform: uppercase;
+    @include h3__M-label;
+
+    @include tablet {
+      @include h3__DT-label;
+    }
+  }
+
+  &__details {
+    @include Mp__body-large;
+
+    @include tablet {
+      @include p__body-large;
+    }
   }
 
   &__container-contact {
