@@ -1,92 +1,84 @@
 import "./EditWarehouse.scss";
 
 // Dependancies
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 // Assets
 import arrowback from "../../assets/Icons/arrow_back-24px.svg";
 
-export default function EditWarehouse() {
+export default function EditWarehouse(selectedWarehouse) {
   const navigate = useNavigate();
-  const BASE_URL = "http://localhost:8000/";
+  const location = useLocation();
+  const BASE_URL = "http://localhost:8080/api/warehouses";
 
   const initialFormData = {
-    wh__name: "",
-    wh__address: "",
-    wh__city: "",
-    wh__country: "",
-    wh__contactname: "",
-    wh__contactnumber: "",
-    wh__contactposition: "",
-    wh__contactemail: "",
-  }
+    warehouse_name: "",
+    address: "",
+    city: "",
+    country: "",
+    contact_name: "",
+    contact_position: "",
+    contact_phone: "",
+    contact_email: "",
+  };
 
-  const [formData, setFormData] = useState(initialFormData)
+  const [formData, setFormData] = useState(initialFormData);
   const [showSuccess, setSuccess] = useState(false);
   const [showError, setError] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  useEffect(() => {
+    if (location.state && location.state.selectedWarehouse) {
+      const { selectedWarehouse } = location.state;
+      setFormData(selectedWarehouse);
+    }
+  }, [location.state]);
 
   const handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const allFieldsFilled = Object.values(formData).every(
-      (value) => value !== "",
-    );
-    if (!allFieldsFilled) {
-      setError(true);
-      return;
-    }
 
-    // Resets the error state
-    setError(false);
-    
-    // POST request to the server
-    // TODO: Do I need to add a useEffect here???
     axios
-    // TODO: Test to see if this send to warehouses
-    .post(`${BASE_URL}warehouses`, formData)
-    .then(() => {
-      setSuccess(true);
-      setTimeout(() => {
-        navigate("/");
-        setFormData(initialFormData);
-        setError(false);
-        setSuccess(false);
-      }, 3000);
-    })
-    .catch((error) => {
-      setError(true);
-    });
+      .put(`${BASE_URL}/${formData.id}`, formData) // Send update request with the warehouse ID
+      .then(() => {
+        setSuccess(true);
+        setTimeout(() => {
+          navigate("/");
+          setSuccess(false);
+        }, 3000);
+      })
+      .catch((error) => {
+        setError(true);
+      });
   };
-  
+
   const cancelHandler = (event) => {
     event.preventDefault();
-    const confirmCancel = window.confirm(
-      "Are you sure you would like to cancel?",
-    );
-    if (confirmCancel) {
-      navigate("/");
-    }
+    setShowConfirmation(true);
   };
 
-  const inputClassName = showError ? "editwh__input editwh__input--error" : "editwh__input";
-
+  const inputClassName = showError
+    ? "editwh__input editwh__input--error"
+    : "editwh__input";
 
   return (
     <section className="editwh">
       <div className="editwh__container">
         <div className="editwh__header">
-          {/* ADD NEW WAREHOUSE HEADER */}
           <Link to="/" className="editwh__back">
             <img
-              className="editwh__arrowback"
+              className="editwh__arrowback grow"
               src={arrowback}
               alt="Arrow back icon"
             />
@@ -96,161 +88,167 @@ export default function EditWarehouse() {
 
         <hr className="editwh__divider editwh__divider--top" />
 
-              {/* TODO: Populate form inputs with the selected warehouse's details */}
-
         <form className="editwh__form" onSubmit={handleSubmit}>
-          {/* WAREHOUSE DETAILS */}
           <div className="editwh__container-form">
-          <div className="editwh__warehousedetails">
-            <h2 className="editwh__subtitle">Warehouse Details</h2>
-            <div className="editwh__container-input">
-              <label htmlFor="wh__name" className="editwh__subheader">
-                Warehouse Name
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__name"
-                name="wh__name"
-                value={formData.wh__name}
-                type="text"
-                placeholder="Toronto"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editwh__container-input">
-              <label htmlFor="wh__address" className="editwh__subheader">
-                Street Address
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__address"
-                name="wh__address"
-                value={formData.wh__address}
-                type="text"
-                placeholder="123 Pearl Street SW"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editwh__container-input">
-              <label htmlFor="wh__city" className="editwh__subheader">
-                City
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__city"
-                name="wh__city"
-                value={formData.wh__city}
-                type="text"
-                placeholder="Toronto"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editwh__container-input">
-              <label htmlFor="wh__country">Country</label>
-              <input
-                className={inputClassName}
-                id="wh__country"
-                name="wh__country"
-                value={formData.wh__country}
-                type="text"
-                placeholder="Canada"
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-
-          {/* CONTACT DETAILS */}
-          <hr className="editwh__divider editwh__divider--tablet" />
-          <div className="editwh__contactdetails">
-            <h2 className="editwh__subtitle">Contact Details</h2>
-
-            <div className="editwh__container-input">
-              <label htmlFor="wh__contactname" className="editwh__subheader">
-                Contact Name
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__contactname"
-                name="wh__contactname"
-                value={formData.wh__contactname}
-                type="text"
-                placeholder="Graeme Lyon"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editwh__container-input">
-              <label htmlFor="wh__contactposition" className="editwh__subheader">
-                Position
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__contactposition"
-                name="wh__contactposition"
-                value={formData.wh__contactposition}
-                type="text"
-                placeholder="Warehouse Manager"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editwh__container-input">
-              <label htmlFor="wh__contactnumber" className="editwh__subheader">
-                Phone Number
-              </label>
-              <input
-                className={inputClassName}
-                id="wh__contactnumber"
-                name="wh__contactnumber"
-                value={formData.wh__contactnumber}
-                type="text"
-                placeholder="+1 (647) 504-0911"
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className="editwh__container-input">
-              <label htmlFor="wh__contactemail">Email</label>
-              <input
-                className={inputClassName}
-                id="wh__contactemail"
-                name="wh__contactemail"
-                value={formData.wh__contactemail}
-                type="text"
-                placeholder="glyon@instock.com"
-                onChange={handleChange}
-              />
-            </div>
-
-            {/* Error handling */}
-            {showError && (
-              <div className="editwh__error">
-                Please fill out all the fields.
+            <div className="editwh__warehousedetails">
+              <h2 className="editwh__subtitle">Warehouse Details</h2>
+              <div className="editwh__container-input">
+                <label htmlFor="name" className="editwh__subheader">
+                  Warehouse Name
+                </label>
+                <input
+                  className={inputClassName}
+                  id="name"
+                  name="warehouse_name"
+                  value={formData.warehouse_name}
+                  type="text"
+                  placeholder="Warehouse Name"
+                  onChange={handleChange}
+                />
               </div>
-            )}
+
+              <div className="editwh__container-input">
+                <label htmlFor="address" className="editwh__subheader">
+                  Street Address
+                </label>
+                <input
+                  className={inputClassName}
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  type="text"
+                  placeholder="123 Pearl Street SW"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="editwh__container-input">
+                <label htmlFor="city" className="editwh__subheader">
+                  City
+                </label>
+                <input
+                  className={inputClassName}
+                  id="city"
+                  name="city"
+                  value={formData.city}
+                  type="text"
+                  placeholder="Toronto"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="editwh__container-input">
+                <label htmlFor="country">Country</label>
+                <input
+                  className={inputClassName}
+                  id="country"
+                  name="country"
+                  value={formData.country}
+                  type="text"
+                  placeholder="Canada"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+
+            <hr className="editwh__divider editwh__divider--tablet" />
+            <div className="editwh__contactdetails">
+              <h2 className="editwh__subtitle">Contact Details</h2>
+
+              <div className="editwh__container-input">
+                <label htmlFor="contactname" className="editwh__subheader">
+                  Contact Name
+                </label>
+                <input
+                  className={inputClassName}
+                  id="contactname"
+                  name="contactname"
+                  value={formData.contact_name}
+                  type="text"
+                  placeholder="Graeme Lyon"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="editwh__container-input">
+                <label htmlFor="contactposition" className="editwh__subheader">
+                  Position
+                </label>
+                <input
+                  className={inputClassName}
+                  id="contactposition"
+                  name="contactposition"
+                  value={formData.contact_position}
+                  type="text"
+                  placeholder="Warehouse Manager"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="editwh__container-input">
+                <label htmlFor="contactnumber" className="editwh__subheader">
+                  Phone Number
+                </label>
+                <input
+                  className={inputClassName}
+                  id="contactnumber"
+                  name="contactphone"
+                  value={formData.contact_phone}
+                  type="text"
+                  placeholder="+1 (647) 504-0911"
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="editwh__container-input">
+                <label htmlFor="contactemail">Email</label>
+                <input
+                  className={inputClassName}
+                  id="contactemail"
+                  name="contactemail"
+                  value={formData.contact_email}
+                  type="text"
+                  placeholder="glyon@instock.com"
+                  onChange={handleChange}
+                />
+              </div>
+
+              {showError && (
+                <div className="editwh__error">
+                  Please fill out all the fields.
+                </div>
+              )}
+            </div>
           </div>
-          </div>
+
           <div className="editwh__action">
             <div className="editwh__buttons">
-            <button
-              onClick={cancelHandler}
-              className="editwh__button editwh__button--cancel"
-            >
-              Cancel
-            </button>
-            <button onSubmit={handleSubmit} className="editwh__button editwh__button--add">
-              + Add Warehouse
-            </button>
+              <button
+                onClick={cancelHandler}
+                className="editwh__button editwh__button--cancel"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="editwh__button editwh__button--add"
+              >
+              Save
+              </button>
             </div>
           </div>
         </form>
 
-        {/* Success handling */}
         {showSuccess && (
           <div className="editwh__success">Upload successful!</div>
+        )}
+
+        {showConfirmation && (
+          <div className="editwh__confirmation">
+            <p>Are you sure you would like to cancel?</p>
+            <button onClick={() => navigate("/")}>Yes</button>
+            <button onClick={() => setShowConfirmation(false)}>No</button>
+          </div>
         )}
       </div>
     </section>

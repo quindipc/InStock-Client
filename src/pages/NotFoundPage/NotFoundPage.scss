@@ -8,27 +8,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-//   padding: $padding-headlines-mobile;
   padding-bottom: 1rem;
   background-color: $white;
+  @include h1__M-header;
 
   @include tablet {
     padding-bottom: 1.5rem;
+    @include h1__DT-header;
   }
-
-//   &__title, &__emoji {
-// //    @include page-header-mobile;
-//    @include tablet {
-//     //    @include page-header-desktop;
-//     }
-// }
-
-// &__message {
-//     @include body-copy-mobile;
-//     @include tablet {
-//         @include body-copy-desktop;
-//     }
-//   }
 
   &__back {
     color: $indigo;

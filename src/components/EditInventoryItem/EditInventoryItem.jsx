@@ -68,6 +68,7 @@ export default function EditInventoryItem() {
         <h1 className="add-inventory__title">Edit Inventory Item</h1>
       </div>
 
+
       <form className="add-inventory__form" onSubmit={submitHandler}>
         <div className="add-inventory__sections">
           <div className="add-inventory__form-section add-inventory__form-section--left">
@@ -224,4 +225,5 @@ export default function EditInventoryItem() {
       </form>
     </div>
   );
+
 }
