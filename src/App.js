@@ -29,7 +29,7 @@ export default function App() {
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/add-new-inventory-item" element={<AddNewInventoryPage />} />
         <Route path="/delete-inventory-item" element={<DeleteInventoryItemPage />} />
-        <Route path="/edit-inventory=item" element={<EditInventoryItemPage />} />
+        <Route path="/edit-inventory-item/:id" element={<EditInventoryItemPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
