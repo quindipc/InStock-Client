@@ -4,23 +4,21 @@
 @use "../../styles/partials/variables" as *;
 
 .editwh {
-  //TODO: need to include font styles for everything
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  //TODO: Card container may need to be changed to global styles
   &__container {
     display: flex;
     flex-direction: column;
     width: 21.4375rem;
     width: 90%;
     background-color: $white;
-    border-radius: 4px; // may need to be changed
+    border-radius: 4px;
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
     margin-top: -4.875rem;
-    margin-bottom: 3rem; //TODO: change footer styles and add margin/padding
+    margin-bottom: 3rem; 
 
     @include tablet {
       min-width: 44rem;

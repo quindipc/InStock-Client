@@ -12,7 +12,6 @@ import editiconwhite from "../../assets/Icons/edit-24px-white.svg";
 
 export default function InventoryItem() {
 
-  // To define later
   const INVENTORY_ID = 1
 
   const navigate = useNavigate();

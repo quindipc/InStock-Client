@@ -39,8 +39,6 @@ export default function AddNewWarehouse() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData); // delete after testing
-
     setError(false);
 
     axios

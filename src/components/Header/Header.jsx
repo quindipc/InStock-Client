@@ -1,6 +1,5 @@
 import './Header.scss'
 
-
 // Dependnancies
 import { Link } from 'react-router-dom';
 

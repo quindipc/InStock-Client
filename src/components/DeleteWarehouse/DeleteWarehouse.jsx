@@ -4,24 +4,6 @@ import React from 'react';
 
 export default function DeleteWarehouse({ setOpenModal, warehouse }) {
 
-    // const BASE_URL = "http://localhost:8080"; 
-
-    // const [warehouses, setWarehouses] = useState([]);
-  
-    // useEffect(() => {
-    //   // Fetch the list of warehouses
-    //   axios.get(`${BASE_URL}/api/warehouses`)
-    //   .then(response => {
-    //       console.log(response.data)
-    //       setWarehouses(response.data);
-    //     })
-    //     .catch(error => {
-    //       console.error('Error fetching warehouses:', error);
-    //     });
-    // }, []);
-
-    // if (warehouses.length === 0) return <h1>Loading</h1> 
-
     return(
         <div className='delete__container' id='overlay'>
             <div className='delete active' id='modal'>
@@ -36,7 +18,3 @@ export default function DeleteWarehouse({ setOpenModal, warehouse }) {
         </div>
     )
 }
-
-// to do :
-//     once the back end is build 
-//     add in a warehouse prop and replace washigtion with that
