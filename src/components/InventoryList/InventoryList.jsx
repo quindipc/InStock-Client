@@ -75,14 +75,12 @@ export default function InventoryList({ setOpenModal }) {
           </div>
         </div>
         <div className="warehouse__icons">
-          <button id="delete__button" className="warehouse__icons-delete grow">
-            <img
-              src={trash}
-              alt="delete trash can"
-              onClick={() => {
-                setOpenModal(true);
-              }}
-            />
+          <button
+            id="delete__button"
+            className="warehouse__icons-delete grow"
+            onClick={() => handleDelete(item)}
+          >
+            <img src={trash} alt="delete trash can" />
           </button>
           <button id="edit__button" className="warehouse__icons-edit grow">
             <Link to={`/edit-inventory-item/${item.id}`}>
