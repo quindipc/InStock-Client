@@ -3,8 +3,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles//partials/font" as *;
 
-// TO DO:
-// FIX FONTS 
 
 
 .warehouses {
@@ -114,90 +112,107 @@
 
 
 /* add in the single warehouse componets styling here  */
-.warehouse{
+
+.warehouse {
   &__item {
     padding: 2rem;
     width: 100%;
     border-bottom: 1px solid $cloud;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    @include tablet{
+    @include tablet {
       display: flex;
       flex-direction: row;
-
     }
-    @include desktop{
+    @include desktop {
       padding: 2.5rem;
     }
   }
-  &__titles{
+  &__titles {
     margin-bottom: 0.25rem;
     color: $slate;
+    @include tablet {
+      display: none;
+    }
   }
-  &__text{
+  &__text {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    &-blue{
+    justify-content: left;
+    @include Mp__body-large;
+
+    @include tablet {
+      @include p__body-large;
+    }
+
+    &-blue {
       color: $indigo;
+      min-width: 11rem;
     }
   }
-  &__left{
-    margin-right: 2.81rem;
-    @include tablet{
+  &__left {
+    margin-right: 1.81rem;
+    @include tablet {
       display: flex;
     }
-    &-name{
+    &-name {
       margin-bottom: 1rem;
-      @include tablet{
-        margin-right: 2.13rem;
+      justify-content: left;
+      @include tablet {
+        margin-right: 1.13rem;
       }
-      @include desktop{
-        margin-right: 8.12rem;
+      @include desktop {
+        margin-left: 3rem;
       }
-      &-button{
+      &-button {
         display: flex;
       }
     }
-    &-address{
+    &-address {
       margin-bottom: 1rem;
-      @include desktop{
-        margin-right: 5.12rem;
+      min-width: 7rem;
+      justify-content: left;
+
+      @include desktop {
+        // margin-right: 4.12rem;
       }
     }
   }
-  &__right{
-    @include tablet{
+  &__right {
+    @include tablet {
       display: flex;
     }
-    &-contact{
+    &-contact {
       margin-bottom: 1rem;
-      @include tablet{
-        margin-right: 2.88rem;
+      min-width: 7rem;
+
+      @include tablet {
+        // margin-right: 1.88rem;
+        justify-content: left;
       }
-      @include desktop{
-        margin-right: 6.19rem;
+      @include desktop {
+        // margin-right: 5.19rem;
       }
     }
-    &-info{
+    &-info {
       margin-bottom: 1rem;
-      @include desktop{
-        margin-right: 6.25rem;
+      min-width: 12rem;
+      @include desktop {
+        // margin-right: 5.25rem;
       }
     }
   }
-  &__icons{
+  &__icons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 2rem;
-    &-delete{
+    &-delete {
       margin-right: 1rem;
     }
   }
 }
-button{
+button {
   all: unset;
   cursor: pointer;
 }
