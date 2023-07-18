@@ -2,7 +2,7 @@ import './DeleteInventory.scss';
 import x_button from "../../assets/Icons/close-24px.svg";
 import axios from 'axios';
 
-export default function DeleteInventory({setOpenModal}) {
+export default function DeleteInventory({setOpenModal, inventoryList}) {
 
     const BASE_URL = "http://localhost:8080/api/inventories";
 
