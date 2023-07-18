@@ -11,6 +11,9 @@
 
   &__container {
     @include container;
+    @include tablet {
+      margin-top: -5.875rem;
+    }
   }
 
   &__container-input {
