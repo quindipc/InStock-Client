@@ -14,16 +14,12 @@
   }
 
   &__header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flex-row-center;
     padding: 1.5rem;
   }
 
   &__title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flex-row-center;
     padding: 1.5rem 1rem;
   }
 
@@ -85,7 +81,7 @@
     flex-direction: column;
     width: 90%;
     background-color: $white;
-    border-radius: 4px; 
+    border-radius: 4px;
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
     margin-top: 0rem;
     margin-bottom: 0rem;
@@ -101,57 +97,11 @@
   }
 
   &__leftcontainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: $white;
-    border-radius: 4px;
-    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-
-    padding-left: 2.5rem;
-    padding-right: 1.5rem;
-
-    @include tablet {
-      width: 50%;
-    }
-
-    @include desktop {
-      width: 50%;
-    }
-
-    &--subheader {
-      padding-top: 1.5rem;
-      color: $slate;
-    }
+    @include container-100;
   }
 
   &__rightcontainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: $white;
-    border-radius: 4px; 
-    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-
-    padding-left: 2.5rem;
-    padding-bottom: 1.5rem;
-
-    @include tablet {
-      width: 50%;
-    }
-
-    @include desktop {
-      width: 50%;
-    }
-
-    &--subheader {
-      padding-top: 1.5rem;
-      color: $slate;
-    }
+    @include container-100;
   }
 }
 

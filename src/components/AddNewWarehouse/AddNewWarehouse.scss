@@ -18,16 +18,12 @@
   }
 
   &__header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+   @include flex-row-center;
     padding: 1.5rem;
   }
 
   &__title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  @include flex-row-center;
     padding: 1.5rem 1rem;
   }
 
@@ -99,10 +95,8 @@
   }
 
   &__action {
-    display: flex;
-    flex-direction: row;
+ @include flex-row-center;
     justify-content: center;
-    align-items: center;
     padding: 1rem;
     background-color: $light-gray;
 
